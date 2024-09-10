@@ -84,7 +84,7 @@ export const EmailSendler = () => {
       <div className="flex gap-6 max-w-xl w-full items-start">
         <div className="w-full max-w-80">
           <input
-            className="min-w-44 py-4 bg-transparent border box-border text-base border-gray-600 w-full pl-6 text-white pr-6"
+            className="min-w-44 py-4 bg-transparent border box-border text-lg border-gray-600 w-full pl-6 text-white pr-6"
             placeholder="Enter Your Email"
             value={email}
             onChange={handleEmailChange}

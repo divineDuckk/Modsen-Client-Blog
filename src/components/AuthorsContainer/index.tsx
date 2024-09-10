@@ -34,6 +34,7 @@ export const AuthorsContainer: FC<AuthorsContainerProps> = ({ atHome }) => {
               photo={photo}
               twitterLink={twitterLink}
               key={id}
+              id={id}
             />
           ),
         )}

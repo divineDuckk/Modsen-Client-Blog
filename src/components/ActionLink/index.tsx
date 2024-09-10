@@ -9,7 +9,7 @@ export const ActionLink: FC<ActionLinkProps> = ({ content, link }) => {
   return (
     <Link
       href={link}
-      className={`px-12 py-4 bg-goldenYellow font-bold text-lg ${sen.className} text-black`}
+      className={`px-12 py-4 bg-goldenYellow font-bold text-lg ${sen.className} text-black -z-0`}
     >
       {content}
     </Link>

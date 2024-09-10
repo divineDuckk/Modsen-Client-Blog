@@ -22,12 +22,27 @@ import { Category } from "@/interfaces/category";
 import { Post } from "@/interfaces/post";
 import { Review } from "@/interfaces/review";
 
-export const BLOG_POST_ROUTE = "/blog_post";
+export const BLOG_ROUTE = "/blog";
+export const BLOG_POST_ROUTE = BLOG_ROUTE + "/";
 export const ABOUT_US_ROUTE = "/about_us";
 export const CONTACT_ROUTE = "/contact";
+export const PRIVACY_POLICY_ROUTE = "/contact";
+export const CATEGORIES_ROUTE = "/categories";
+export const AUTHORS_ROUTE = "/authors";
+export const AUTHOR_ROUTE = AUTHORS_ROUTE + "/";
+export const CATEGORY_ROUTE = CATEGORIES_ROUTE + "/";
+export const HOME_ROUTE = "/";
 
-export const HEADER_LINKS = ["Home", "Blog", "About us", "Contact us"];
-export const FOOTER_LINKS = [...HEADER_LINKS, "Privacy Policy"];
+export const HEADER_LINKS = [
+  { title: "Home", link: HOME_ROUTE },
+  { title: "Blog", link: BLOG_POST_ROUTE },
+  { title: "About us", link: ABOUT_US_ROUTE },
+  { title: "Contact us", link: CONTACT_ROUTE },
+];
+export const FOOTER_LINKS = [
+  ...HEADER_LINKS,
+  { title: "Privacy Policy", link: PRIVACY_POLICY_ROUTE },
+];
 
 export const REVIEWS: Review[] = [
   {
@@ -80,6 +95,8 @@ export const MOCKED_POSTS: Post[] = [
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "May 23, 2022",
     imgUrl: mockedImg,
+    category: "bussiness",
+    authorId: "10",
   },
   {
     id: "2",
@@ -89,6 +106,8 @@ export const MOCKED_POSTS: Post[] = [
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "Aug 23, 2021",
     imgUrl: mockedImg,
+    category: "bussiness",
+    authorId: "10",
   },
   {
     id: "3",
@@ -98,6 +117,8 @@ export const MOCKED_POSTS: Post[] = [
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "Aug 23, 2021",
     imgUrl: mockedImg,
+    category: "economy",
+    authorId: "10",
   },
   {
     id: "4",
@@ -107,6 +128,8 @@ export const MOCKED_POSTS: Post[] = [
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "Aug 23, 2021",
     imgUrl: mockedImg,
+    category: "economy",
+    authorId: "10",
   },
   {
     id: "5",
@@ -116,8 +139,24 @@ export const MOCKED_POSTS: Post[] = [
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "Aug 23, 2021",
     imgUrl: mockedImg,
+    category: "technology",
+    authorId: "10",
+  },
+  {
+    id: "6",
+    author: "James West",
+    title: "Step-by-step guide to choosing great font pairs",
+    content:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+    date: "May 23, 2022",
+    imgUrl: mockedImg,
+    category: "startup",
+    authorId: "9",
   },
 ];
+
+export const VIDEO_URL =
+  "https://www.youtube.com/embed/5uNQukWPsGM?autoplay=1&si=ut4W5v43IKm3enT5";
 
 export const MOCKED_AUTHORS: Author[] = [
   {
@@ -194,6 +233,26 @@ export const MOCKED_AUTHORS: Author[] = [
     id: "8",
     about: "Content Writer @Company",
     name: "Jacob Jones",
+    photo: author8,
+    facebookLink: "https://www.facebook.com/",
+    instargamLink: "https://www.instagram.com/undefined_duck/",
+    linkedInLink: "https://www.linkedin.com/",
+    twitterLink: "https://x.com/divineduck2",
+  },
+  {
+    id: "9",
+    about: "Content Writer @Company",
+    name: "James West",
+    photo: author8,
+    facebookLink: "https://www.facebook.com/",
+    instargamLink: "https://www.instagram.com/undefined_duck/",
+    linkedInLink: "https://www.linkedin.com/",
+    twitterLink: "https://x.com/divineduck2",
+  },
+  {
+    id: "10",
+    about: "Content Writer @Company",
+    name: "John Doe",
     photo: author8,
     facebookLink: "https://www.facebook.com/",
     instargamLink: "https://www.instagram.com/undefined_duck/",

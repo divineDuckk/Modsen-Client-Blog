@@ -23,6 +23,7 @@ const config: Config = {
         linen: "var(--linen)",
         whiteSmoke: "var(--whiteSmoke)",
         сharcoal: "var(--сharcoal)",
+        dark: "var(--dark)",
       },
       maxWidth: {
         1440: "1440px",

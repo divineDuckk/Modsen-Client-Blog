@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FC } from "react";
 
 import { sen } from "@/app/fonts";
+import { ABOUT_US_ROUTE } from "@/constants";
 
 import { AboutUsContainerProps } from "./types";
 
@@ -41,7 +42,7 @@ export const AboutUsContainer: FC<AboutUsContainerProps> = ({ atHome }) => {
           {atHome && (
             <Link
               className={`${sen.className} font-bold text-blue-700`}
-              href={""}
+              href={ABOUT_US_ROUTE}
             >
               {"Read More >"}
             </Link>

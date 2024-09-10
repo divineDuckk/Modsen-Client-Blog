@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { FOOTER_LINKS } from "@/constants";
 
 import { LINKS } from "./constants";
@@ -10,12 +12,12 @@ export const Footer = () => {
         <div className="w-full flex justify-between mb-12 items-center ">
           <h2 className="font-bold text-2xl text-white">Modsen Client Blog</h2>
           <ul className="flex gap-6 items-center text-white">
-            {FOOTER_LINKS.map((link) => (
+            {FOOTER_LINKS.map(({ link, title }) => (
               <li
                 className="text-base font-normal cursor-pointer hover:text-shadow-white transition-all"
-                key={link}
+                key={title}
               >
-                {link}
+                <Link href={link}>{title}</Link>
               </li>
             ))}
           </ul>
