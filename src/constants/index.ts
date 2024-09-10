@@ -24,9 +24,9 @@ import { Review } from "@/interfaces/review";
 
 export const BLOG_ROUTE = "/blog";
 export const BLOG_POST_ROUTE = BLOG_ROUTE + "/";
-export const ABOUT_US_ROUTE = "/about_us";
+export const ABOUT_US_ROUTE = "/about";
 export const CONTACT_ROUTE = "/contact";
-export const PRIVACY_POLICY_ROUTE = "/contact";
+export const PRIVACY_POLICY_ROUTE = "/privacy";
 export const CATEGORIES_ROUTE = "/categories";
 export const AUTHORS_ROUTE = "/authors";
 export const AUTHOR_ROUTE = AUTHORS_ROUTE + "/";
