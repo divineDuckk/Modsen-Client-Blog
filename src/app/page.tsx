@@ -20,11 +20,13 @@ import {
 } from "@/constants";
 import { Post } from "@/interfaces/post";
 import { findFirstStartupPost } from "@/utils/functions/findFirstStartupPost";
+import { getAbsoluteUrl } from "@/utils/functions/getAbsoluteUrl";
 
 import { sen } from "./fonts";
 
 export default async function Home() {
-  const response = await fetch("http://localhost:3000/api");
+  const baseUrl = getAbsoluteUrl();
+  const response = await fetch(`${baseUrl}/api`);
   const posts = await response.json();
 
   const startUpPost = findFirstStartupPost(posts);
