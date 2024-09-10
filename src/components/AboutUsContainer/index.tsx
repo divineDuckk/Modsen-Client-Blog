@@ -17,7 +17,7 @@ export const AboutUsContainer: FC<AboutUsContainerProps> = ({ atHome }) => {
         </div>
       )}
       <div
-        className={`py-24 ${atHome ? "flex" : "flex-row-reverse"} gap-14 justify-center bg-magnolia`}
+        className={`py-24 flex ${atHome ? "flex-row" : "flex-col-reverse items-center"} gap-14 justify-center bg-magnolia`}
       >
         <div className="max-w-lg">
           <p className="font-semibold text-base text-сharlestonGreen uppercase mb-6 tracking-widest">

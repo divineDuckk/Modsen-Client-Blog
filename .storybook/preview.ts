@@ -1,5 +1,7 @@
 import type { Preview } from "@storybook/react";
 
+import "../src/app/globals.css";
+
 const preview: Preview = {
   parameters: {
     controls: {
@@ -7,6 +9,7 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
+      expanded: true,
     },
   },
 
