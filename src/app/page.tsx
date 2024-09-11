@@ -45,7 +45,8 @@ export default async function Home() {
               </h3>
               <h1 className={`text-6xl ${sen.className} font-bold`}>{title}</h1>
               <p className="text-base font-normal">
-                By <span className="text-goldenYellow">{author}</span> | {date}
+                By <span className="text-goldenYellow">{author.name}</span> |{" "}
+                {date}
               </p>
               <p className="text-base font-normal max-w-xl mb-12">{content}</p>
               <ActionLink content="Read more >" link={BLOG_POST_ROUTE + id} />
@@ -70,7 +71,8 @@ export default async function Home() {
                 <section className="p-8 border border-solid border-gray-200 max-w-3xl">
                   <Image src={imgUrl} alt="post image" />
                   <p className="mt-8 mb-4">
-                    By <span className="text-blue-600">{author}</span> | {date}
+                    By <span className="text-blue-600">{author.name}</span> |{" "}
+                    {date}
                   </p>
                   <h3 className={`${sen.className} font-bold text-3xl mb-4`}>
                     {title}
@@ -93,7 +95,7 @@ export default async function Home() {
                 </div>
                 {MOCKED_POSTS.slice(1, 5).map(({ author, date, title, id }) => (
                   <MiniPost
-                    author={author}
+                    author={author.name}
                     date={date}
                     title={title}
                     key={id}
