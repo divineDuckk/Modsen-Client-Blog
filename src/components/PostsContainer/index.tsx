@@ -40,46 +40,32 @@ export const PostsContainer: FC<PostsContainerProps> = ({ serverPosts }) => {
   };
 
   const isThereNextPage = checkIsEndOfArray(posts, serverPosts);
+  const isTherePrevPage = page === 0;
 
   return (
-    <div
-      className={`${sen.className} font-bold text-5xl w-full max-w-1440 px-8 mb-16`}
-      ref={ref}
-    >
-      <h1 className="text-left w-full pb-8 border-b border-solid border-gray-200 mb-16">
+    <div className="w-full" ref={ref}>
+      <h1
+        className={`${sen.className} font-bold text-5xl text-left w-full pb-8 border-b border-solid border-gray-200 mb-16`}
+      >
         All posts
       </h1>
       <section className="flex flex-col gap-16 mb-16">
-        {posts.map(
-          ({
-            author,
-            authorId,
-            category,
-            content,
-            date,
-            id,
-            imgUrl,
-            title,
-          }) => (
-            <BlogPost
-              author={author}
-              authorId={authorId}
-              category={category}
-              content={content}
-              date={date}
-              id={id}
-              imgUrl={imgUrl}
-              title={title}
-              key={id}
-            />
-          ),
-        )}
+        {posts.map(({ category, content, id, imgUrl, title }) => (
+          <BlogPost
+            category={category}
+            content={content}
+            id={id}
+            imgUrl={imgUrl}
+            title={title}
+            key={id}
+          />
+        ))}
       </section>
       <div className="flex justify-center gap-4">
         <button
           onClick={handlePrevtClick}
-          className={`${sen.className} font-bold text-2xl transition-all   ${page === 0 ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`}
-          disabled={page === 0}
+          className={`${sen.className} font-bold text-2xl transition-all   ${isTherePrevPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`}
+          disabled={isTherePrevPage}
         >
           {"< Prev"}
         </button>

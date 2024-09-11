@@ -2,6 +2,8 @@ import Image from "next/image";
 
 import { sen } from "@/app/fonts";
 import { ActionLink } from "@/components/ActionLink";
+import { CategoryContainer } from "@/components/CategoryContainer";
+import { JoinContainer } from "@/components/JoinContainer";
 import { PostsContainer } from "@/components/PostsContainer";
 import { BLOG_POST_ROUTE } from "@/constants";
 import { Post } from "@/interfaces/post";
@@ -27,7 +29,7 @@ export default async function Blog() {
               <p className="font-medium text-sm mb-4">
                 By{" "}
                 <span className="font-medium text-sm text-blue-600">
-                  {author}
+                  {author.name}
                 </span>{" "}
                 | {date}
               </p>
@@ -39,7 +41,11 @@ export default async function Blog() {
             </div>
           </div>
         </div>
-        <PostsContainer serverPosts={posts} />
+        <div className="w-full max-w-1440 px-8">
+          <PostsContainer serverPosts={posts} />
+          <CategoryContainer title="All Categories" />
+          <JoinContainer />
+        </div>
       </main>
     </div>
   );

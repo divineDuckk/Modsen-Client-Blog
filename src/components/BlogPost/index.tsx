@@ -1,23 +1,25 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 
 import { sen } from "@/app/fonts";
+import { BLOG_POST_ROUTE } from "@/constants";
 
 import { BlogPostProps } from "./types";
 
 export const BlogPost: FC<BlogPostProps> = ({
-  author,
-  authorId,
   category,
   content,
-  date,
   id,
   imgUrl,
   title,
 }) => {
   return (
-    <article className="flex gap-8 items-center hover:bg-linen transition-all cursor-pointer">
+    <Link
+      href={BLOG_POST_ROUTE + id}
+      className="flex gap-8 items-center hover:bg-linen transition-all cursor-pointer"
+    >
       <div className="object-cover max-w-md max-h-80 w-full">
         <Image src={imgUrl} alt="post image" />
       </div>
@@ -32,6 +34,6 @@ export const BlogPost: FC<BlogPostProps> = ({
         </h2>
         <p className="font-normal text-base opacity-65">{content}</p>
       </div>
-    </article>
+    </Link>
   );
 };

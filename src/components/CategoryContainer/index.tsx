@@ -8,7 +8,7 @@ import { CategoryContainerProps } from "./types";
 
 export const CategoryContainer: FC<CategoryContainerProps> = ({
   title,
-  atHome,
+  atHome = false,
 }) => {
   return (
     <div className="w-full">
