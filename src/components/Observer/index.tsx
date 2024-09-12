@@ -1,7 +1,10 @@
 import { Children, FC } from "react";
 
 import { LazyLoad } from "./LazyContainer";
-import { ObserverProps } from "./types";
+
+interface ObserverProps {
+  children: JSX.Element[];
+}
 
 export const Observer: FC<ObserverProps> = ({ children }) => {
   return (

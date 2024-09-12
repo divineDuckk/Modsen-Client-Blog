@@ -22,26 +22,32 @@ import { Category } from "@/interfaces/category";
 import { Post } from "@/interfaces/post";
 import { Review } from "@/interfaces/review";
 
-export const BLOG_ROUTE = "/blog";
-export const BLOG_POST_ROUTE = BLOG_ROUTE + "/";
-export const ABOUT_US_ROUTE = "/about";
-export const CONTACT_ROUTE = "/contact";
-export const PRIVACY_POLICY_ROUTE = "/privacy";
-export const CATEGORIES_ROUTE = "/categories";
-export const AUTHORS_ROUTE = "/authors";
-export const AUTHOR_ROUTE = AUTHORS_ROUTE + "/";
-export const CATEGORY_ROUTE = CATEGORIES_ROUTE + "/";
-export const HOME_ROUTE = "/";
+const ROUTES = {
+  home: "/",
+  blog: "/blog",
+  blogPost: "/blog/",
+  aboutUs: "/about",
+  contact: "/contact",
+  privacyPolicy: "/privacy",
+  categories: "/categories",
+  authors: "/authors",
+  author: "/authors/",
+  category: "/categories/",
+};
+
+export const getRoute = (page: keyof typeof ROUTES) => {
+  return ROUTES[page];
+};
 
 export const HEADER_LINKS = [
-  { title: "Home", link: HOME_ROUTE },
-  { title: "Blog", link: BLOG_POST_ROUTE },
-  { title: "About us", link: ABOUT_US_ROUTE },
-  { title: "Contact us", link: CONTACT_ROUTE },
+  { title: "Home", link: getRoute("home") },
+  { title: "Blog", link: getRoute("blog") },
+  { title: "About us", link: getRoute("aboutUs") },
+  { title: "Contact us", link: getRoute("contact") },
 ];
 export const FOOTER_LINKS = [
   ...HEADER_LINKS,
-  { title: "Privacy Policy", link: PRIVACY_POLICY_ROUTE },
+  { title: "Privacy Policy", link: getRoute("privacyPolicy") },
 ];
 
 export const REVIEWS: Review[] = [

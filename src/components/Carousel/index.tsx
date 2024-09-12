@@ -3,7 +3,10 @@
 import { FC, useState } from "react";
 
 import { OFFSET } from "./constants";
-import { CarouselProps } from "./types";
+
+interface CarouselProps {
+  children: JSX.Element[];
+}
 
 export const Carousel: FC<CarouselProps> = ({ children }) => {
   const [page, setPage] = useState(0);

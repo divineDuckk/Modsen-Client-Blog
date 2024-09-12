@@ -11,13 +11,7 @@ import { JoinContainer } from "@/components/JoinContainer";
 import { MiniPost } from "@/components/MiniPost";
 import { Observer } from "@/components/Observer";
 import { Testimonials } from "@/components/Testimonials";
-import {
-  ABOUT_US_ROUTE,
-  BLOG_POST_ROUTE,
-  BLOG_ROUTE,
-  LINKS_LIST,
-  MOCKED_POSTS,
-} from "@/constants";
+import { getRoute, LINKS_LIST, MOCKED_POSTS } from "@/constants";
 import { Post } from "@/interfaces/post";
 import { findFirstStartupPost } from "@/utils/functions/findFirstStartupPost";
 import { getAbsoluteUrl } from "@/utils/functions/getAbsoluteUrl";
@@ -49,7 +43,10 @@ export default async function Home() {
                 {date}
               </p>
               <p className="text-base font-normal max-w-xl mb-12">{content}</p>
-              <ActionLink content="Read more >" link={BLOG_POST_ROUTE + id} />
+              <ActionLink
+                content="Read more >"
+                link={`${getRoute("blogPost")}${id}`}
+              />
             </section>
             <div className="absolute -z-10 left-0 top-0 w-full h-90">
               <Image
@@ -80,7 +77,7 @@ export default async function Home() {
                   <p className="font-normal text-base mb-8">{content}</p>
                   <ActionLink
                     content="Read more >"
-                    link={BLOG_POST_ROUTE + id}
+                    link={`${getRoute("blogPost")}${id}`}
                   />
                 </section>
               </div>
@@ -89,13 +86,13 @@ export default async function Home() {
                   <h2 className={`${sen.className} font-bold text-4xl`}>
                     All Posts
                   </h2>
-                  <Link className="text-blue-500" href={BLOG_ROUTE}>
+                  <Link className="text-blue-500" href={getRoute("blog")}>
                     View All
                   </Link>
                 </div>
                 {MOCKED_POSTS.slice(1, 5).map(({ author, date, title, id }) => (
                   <MiniPost
-                    author={author.name}
+                    authorName={author.name}
                     date={date}
                     title={title}
                     key={id}
@@ -126,7 +123,7 @@ export default async function Home() {
                 </p>
                 <ActionLink
                   content="Discover our story >"
-                  link={ABOUT_US_ROUTE}
+                  link={getRoute("aboutUs")}
                 />
               </div>
             </div>

@@ -1,12 +1,20 @@
 import Link from "next/link";
 import { FC } from "react";
+import { twMerge } from "tailwind-merge";
 
 import { sen } from "@/app/fonts";
-import { ABOUT_US_ROUTE } from "@/constants";
+import { getRoute } from "@/constants";
 
-import { AboutUsContainerProps } from "./types";
+interface AboutUsContainerProps {
+  atHome: boolean;
+}
 
 export const AboutUsContainer: FC<AboutUsContainerProps> = ({ atHome }) => {
+  const aboutClassName = twMerge(
+    `py-24 flex`,
+    atHome ? "flex-row" : "flex-col-reverse items-center",
+    `gap-14 justify-center bg-magnolia`,
+  );
   return (
     <div className="w-full mb-32">
       {atHome && (
@@ -16,9 +24,7 @@ export const AboutUsContainer: FC<AboutUsContainerProps> = ({ atHome }) => {
           <span className="w-1/3 h-full bg-purple-700 inline-block" />
         </div>
       )}
-      <div
-        className={`py-24 flex ${atHome ? "flex-row" : "flex-col-reverse items-center"} gap-14 justify-center bg-magnolia`}
-      >
+      <div className={aboutClassName}>
         <div className="max-w-lg">
           <p className="font-semibold text-base text-сharlestonGreen uppercase mb-6 tracking-widest">
             {atHome ? "About us" : "Our Vision"}
@@ -42,7 +48,7 @@ export const AboutUsContainer: FC<AboutUsContainerProps> = ({ atHome }) => {
           {atHome && (
             <Link
               className={`${sen.className} font-bold text-blue-700`}
-              href={ABOUT_US_ROUTE}
+              href={getRoute("aboutUs")}
             >
               {"Read More >"}
             </Link>

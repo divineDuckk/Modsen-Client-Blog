@@ -1,6 +1,6 @@
 import { sen } from "@/app/fonts";
 import { ActionLink } from "@/components/ActionLink";
-import { CONTACT_ROUTE } from "@/constants";
+import { getRoute } from "@/constants";
 
 export const JoinContainer = () => {
   return (
@@ -13,7 +13,7 @@ export const JoinContainer = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt.
         </p>
-        <ActionLink content="Join Now" link={CONTACT_ROUTE} />
+        <ActionLink content="Join Now" link={getRoute("contact")} />
       </article>
     </div>
   );
