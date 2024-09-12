@@ -8,7 +8,7 @@ import { Author } from "@/interfaces/author";
 
 import { createLinks } from "./constants";
 
-interface AuthorCardProps extends Author {}
+export interface AuthorCardProps extends Author {}
 
 export const AuthorCard: FC<AuthorCardProps> = ({
   about,

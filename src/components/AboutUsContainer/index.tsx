@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { sen } from "@/app/fonts";
 import { getRoute } from "@/constants";
 
-interface AboutUsContainerProps {
+export interface AboutUsContainerProps {
   atHome: boolean;
 }
 

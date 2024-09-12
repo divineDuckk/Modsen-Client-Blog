@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 
 import { ActionLink } from "@/components/ActionLink";
-import { ActionLinkProps } from "@/components/ActionLink/types";
+import { ActionLinkProps } from "@/components/ActionLink";
 
 export default {
   title: "Components/ActionLink",

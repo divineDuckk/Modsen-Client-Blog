@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 
 import photo from "@/assets/author1.png";
 import { AuthorCard } from "@/components/AuthorsContainer/AuthorCard";
-import { AuthorCardProps } from "@/components/AuthorsContainer/AuthorCard/types";
+import { AuthorCardProps } from "@/components/AuthorsContainer/AuthorCard";
 
 export default {
   title: "Components/AuthorCard",
