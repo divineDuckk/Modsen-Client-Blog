@@ -9,6 +9,7 @@ import author8 from "@/assets/author8.png";
 import businessIcon from "@/assets/business.svg";
 import economyIcon from "@/assets/economy.svg";
 import logo1 from "@/assets/Featured in.svg";
+import johnMockedImg from "@/assets/JohnsMockedImg.png";
 import logo2 from "@/assets/Logo 1.svg";
 import logo3 from "@/assets/Logo 3.svg";
 import logo4 from "@/assets/Logo 4.svg";
@@ -109,7 +110,7 @@ export const MOCKED_POSTS: Post[] = [
     content:
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "May 23, 2022",
-    imgUrl: mockedImg,
+    imgUrl: johnMockedImg,
     category: "bussiness",
   },
   {
@@ -128,7 +129,7 @@ export const MOCKED_POSTS: Post[] = [
     content:
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "Aug 23, 2021",
-    imgUrl: mockedImg,
+    imgUrl: johnMockedImg,
     category: "bussiness",
   },
   {
@@ -147,7 +148,7 @@ export const MOCKED_POSTS: Post[] = [
     content:
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "Aug 23, 2021",
-    imgUrl: mockedImg,
+    imgUrl: johnMockedImg,
     category: "economy",
   },
   {
@@ -166,7 +167,7 @@ export const MOCKED_POSTS: Post[] = [
     content:
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "Aug 23, 2021",
-    imgUrl: mockedImg,
+    imgUrl: johnMockedImg,
     category: "economy",
   },
   {
@@ -185,7 +186,7 @@ export const MOCKED_POSTS: Post[] = [
     content:
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "Aug 23, 2021",
-    imgUrl: mockedImg,
+    imgUrl: johnMockedImg,
     category: "technology",
   },
   {

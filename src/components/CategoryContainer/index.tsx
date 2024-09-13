@@ -8,12 +8,12 @@ import { Category } from "./Category";
 
 interface CategoryContainerProps {
   title: string;
-  atHome: boolean;
+  atHome?: boolean;
 }
 
 export const CategoryContainer: FC<CategoryContainerProps> = ({
   title,
-  atHome,
+  atHome = false,
 }) => {
   const categoryClass = twMerge(
     `${sen.className} ${atHome ? "text-center" : "text-left"} font-bold text-3xl mb-12`,
