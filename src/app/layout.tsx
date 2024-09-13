@@ -1,4 +1,10 @@
 import type { Metadata } from "next";
+import { twMerge } from "tailwind-merge";
+
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+
+import { inter } from "./fonts";
 
 import "./globals.css";
 
@@ -12,9 +18,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const bodyClass = twMerge(
+    `antialiased flex flex-col justify-center ${inter.className}`,
+  );
   return (
     <html lang="en">
-      <body className={`antialiased`}>{children}</body>
+      <body className={bodyClass}>
+        <Header />
+        <div className="w-full">{children}</div>
+        <Footer />
+      </body>
     </html>
   );
 }
