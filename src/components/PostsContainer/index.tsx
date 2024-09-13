@@ -1,6 +1,7 @@
 "use client";
 
 import { FC, useRef, useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 import { sen } from "@/app/fonts";
 import { BlogPost } from "@/components/BlogPost";
@@ -8,7 +9,10 @@ import { Post } from "@/interfaces/post";
 import { checkIsEndOfArray } from "@/utils/functions/checkIsEndOfArray";
 
 import { PAGE_SIZE } from "./constants";
-import { PostsContainerProps } from "./types";
+
+interface PostsContainerProps {
+  serverPosts: Post[];
+}
 
 export const PostsContainer: FC<PostsContainerProps> = ({ serverPosts }) => {
   const [page, setPage] = useState(0);
@@ -42,6 +46,12 @@ export const PostsContainer: FC<PostsContainerProps> = ({ serverPosts }) => {
   const isThereNextPage = checkIsEndOfArray(posts, serverPosts);
   const isTherePrevPage = page === 0;
 
+  const prevClass = twMerge(
+    `${sen.className} font-bold text-2xl transition-all   ${isTherePrevPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`,
+  );
+  const nextClass = twMerge(
+    `${sen.className} font-bold text-2xl ${isThereNextPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"} transition-all`,
+  );
   return (
     <div className="w-full" ref={ref}>
       <h1
@@ -64,14 +74,14 @@ export const PostsContainer: FC<PostsContainerProps> = ({ serverPosts }) => {
       <div className="flex justify-center gap-4">
         <button
           onClick={handlePrevtClick}
-          className={`${sen.className} font-bold text-2xl transition-all   ${isTherePrevPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`}
+          className={prevClass}
           disabled={isTherePrevPage}
         >
           {"< Prev"}
         </button>
         <button
           onClick={handleNextClick}
-          className={`${sen.className} font-bold text-2xl ${isThereNextPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"} transition-all`}
+          className={nextClass}
           disabled={isThereNextPage}
         >
           {"Next >"}

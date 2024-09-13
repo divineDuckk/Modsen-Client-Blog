@@ -1,8 +1,11 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, ReactNode } from "react";
 
 import { VIEW_VALUE } from "./constants";
-import { LazyLoadProps } from "./types";
+
+export interface LazyLoadProps {
+  children: ReactNode;
+}
 
 export const LazyLoad: React.FC<LazyLoadProps> = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false);

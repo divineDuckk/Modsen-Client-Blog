@@ -5,7 +5,7 @@ import { ActionLink } from "@/components/ActionLink";
 import { CategoryContainer } from "@/components/CategoryContainer";
 import { JoinContainer } from "@/components/JoinContainer";
 import { PostsContainer } from "@/components/PostsContainer";
-import { BLOG_POST_ROUTE } from "@/constants";
+import { getRoute } from "@/constants";
 import { Post } from "@/interfaces/post";
 import { getAbsoluteUrl } from "@/utils/functions/getAbsoluteUrl";
 
@@ -34,7 +34,10 @@ export default async function Blog() {
                 | {date}
               </p>
               <p className="mb-8 font-normal text-base opacity-65">{content}</p>
-              <ActionLink content="Read more >" link={BLOG_POST_ROUTE + id} />
+              <ActionLink
+                content="Read more >"
+                link={`${getRoute("blogPost")}${id}`}
+              />
             </section>
             <div className="max-w-lg object-cover">
               <Image src={imgUrl} alt="post image" />

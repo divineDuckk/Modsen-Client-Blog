@@ -3,14 +3,19 @@ import Link from "next/link";
 import { FC } from "react";
 
 import { sen } from "@/app/fonts";
-import { CATEGORY_ROUTE } from "@/constants";
+import { getRoute } from "@/constants";
+import { photoType } from "@/types";
 
-import { CategoryProps } from "./types";
+interface CategoryProps {
+  content: string;
+  icon: photoType;
+  title: string;
+}
 
 export const Category: FC<CategoryProps> = ({ content, icon, title }) => {
   return (
     <Link
-      href={CATEGORY_ROUTE + title}
+      href={`${getRoute("category")}${title}`}
       className="p-8 border border-solid border-gray-200 max-w-72 cursor-pointer hover:bg-goldenYellow transition-all"
     >
       <div className="w-fit rounded-lg p-3 bg-linen mb-4">

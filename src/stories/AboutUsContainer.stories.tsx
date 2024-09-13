@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 
 import { AboutUsContainer } from "@/components/AboutUsContainer";
-import { AboutUsContainerProps } from "@/components/AboutUsContainer/types";
+import { AboutUsContainerProps } from "@/components/AboutUsContainer";
 
 export default {
   title: "Components/AboutUsContainer",

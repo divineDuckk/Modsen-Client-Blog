@@ -1,12 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 
 import { sen } from "@/app/fonts";
-import { BLOG_POST_ROUTE } from "@/constants";
+import { getRoute } from "@/constants";
+import { Post } from "@/interfaces/post";
 
-import { BlogPostProps } from "./types";
+interface BlogPostProps extends Omit<Post, "author" | "date"> {}
 
 export const BlogPost: FC<BlogPostProps> = ({
   category,
@@ -17,7 +17,7 @@ export const BlogPost: FC<BlogPostProps> = ({
 }) => {
   return (
     <Link
-      href={BLOG_POST_ROUTE + id}
+      href={`${getRoute("blogPost")}${id}`}
       className="flex gap-8 items-center hover:bg-linen transition-all cursor-pointer"
     >
       <div className="object-cover max-w-md max-h-80 w-full">

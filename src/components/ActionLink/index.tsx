@@ -3,7 +3,10 @@ import { FC } from "react";
 
 import { sen } from "@/app/fonts";
 
-import { ActionLinkProps } from "./types";
+export interface ActionLinkProps {
+  content: string;
+  link: string;
+}
 
 export const ActionLink: FC<ActionLinkProps> = ({ content, link }) => {
   return (

@@ -1,7 +1,10 @@
 import { FC, useEffect } from "react";
 import { createPortal } from "react-dom";
 
-import { PortalProps } from "./types";
+interface PortalProps {
+  onClose: () => void;
+  children: JSX.Element;
+}
 
 export const Modal: FC<PortalProps> = ({ children, onClose }) => {
   const handleContainerClick = (event: React.MouseEvent) => {

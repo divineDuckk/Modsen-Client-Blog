@@ -4,8 +4,15 @@ import Image from "next/image";
 import { FC } from "react";
 
 import { sen } from "@/app/fonts";
+import { photoType } from "@/types";
 
-import { ReviewProps } from "./types";
+export interface ReviewProps {
+  review: string;
+  city: string;
+  country: string;
+  name: string;
+  photo: photoType;
+}
 
 export const Review: FC<ReviewProps> = ({
   city,
