@@ -10,13 +10,17 @@ import { returnEmailStatusMsg } from "@/utils/functions/returnEmailStatusMsg";
 
 import { schema } from "./constants";
 
-export type dataInputType = InferType<typeof schema>;
+type dataInputType = InferType<typeof schema>;
+
+interface ErrorsState {
+  email?: string;
+}
 
 export const EmailLogicBlock = () => {
   const [email, setEmail] = useState("");
   const [sending, setSending] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [errors, setErrors] = useState<{ email?: string }>({});
+  const [errors, setErrors] = useState<ErrorsState>({});
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     const email = e.target.value;
