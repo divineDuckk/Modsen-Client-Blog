@@ -40,6 +40,10 @@ export const getRoute = (page: keyof typeof ROUTES) => {
   return ROUTES[page];
 };
 
+export const getCategoryImg = (category: string) => {
+  return CATEGORY.find(({ title }) => title === category)?.icon;
+};
+
 export const HEADER_LINKS = [
   { title: "Home", link: getRoute("home") },
   { title: "Blog", link: getRoute("blog") },
@@ -111,7 +115,7 @@ export const MOCKED_POSTS: Post[] = [
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "May 23, 2022",
     imgUrl: johnMockedImg,
-    category: "bussiness",
+    category: "Business",
   },
   {
     id: "2",
@@ -130,7 +134,7 @@ export const MOCKED_POSTS: Post[] = [
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "Aug 23, 2021",
     imgUrl: johnMockedImg,
-    category: "bussiness",
+    category: "Business",
   },
   {
     id: "3",
@@ -149,7 +153,7 @@ export const MOCKED_POSTS: Post[] = [
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "Aug 23, 2021",
     imgUrl: johnMockedImg,
-    category: "economy",
+    category: "Economy",
   },
   {
     id: "4",
@@ -168,7 +172,7 @@ export const MOCKED_POSTS: Post[] = [
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "Aug 23, 2021",
     imgUrl: johnMockedImg,
-    category: "economy",
+    category: "Economy",
   },
   {
     id: "5",
@@ -187,7 +191,7 @@ export const MOCKED_POSTS: Post[] = [
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "Aug 23, 2021",
     imgUrl: johnMockedImg,
-    category: "technology",
+    category: "Technology",
   },
   {
     id: "6",
@@ -206,7 +210,159 @@ export const MOCKED_POSTS: Post[] = [
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
     date: "May 23, 2022",
     imgUrl: mockedImg,
-    category: "startup",
+    category: "Startup",
+  },
+  {
+    id: "7",
+    author: {
+      id: "1",
+      about: "Content Writer @Company",
+      name: "Floyd Miles",
+      photo: author1,
+      facebookLink: "https://www.facebook.com/",
+      instargamLink: "https://www.instagram.com/undefined_duck/",
+      linkedInLink: "https://www.linkedin.com/",
+      twitterLink: "https://x.com/divineduck2",
+    },
+    title: "The Ultimate Guide to Remote Work",
+    content:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    date: "Jul 12, 2023",
+    imgUrl: mockedImg,
+    category: "Technology",
+  },
+  {
+    id: "8",
+    author: {
+      id: "2",
+      about: "Content Writer @Company",
+      name: "Dianne Russell",
+      photo: author2,
+      facebookLink: "https://www.facebook.com/",
+      instargamLink: "https://www.instagram.com/undefined_duck/",
+      linkedInLink: "https://www.linkedin.com/",
+      twitterLink: "https://x.com/divineduck2",
+    },
+    title: "How to Build a Startup in 2024",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor.",
+    date: "Jan 20, 2024",
+    imgUrl: johnMockedImg,
+    category: "Startup",
+  },
+  {
+    id: "9",
+    author: {
+      id: "3",
+      about: "Content Writer @Company",
+      name: "Jenny Wilson",
+      photo: author3,
+      facebookLink: "https://www.facebook.com/",
+      instargamLink: "https://www.instagram.com/undefined_duck/",
+      linkedInLink: "https://www.linkedin.com/",
+      twitterLink: "https://x.com/divineduck2",
+    },
+    title: "10 Best Business Strategies for 2024",
+    content:
+      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    date: "Mar 5, 2024",
+    imgUrl: mockedImg,
+    category: "Business",
+  },
+  {
+    id: "10",
+    author: {
+      id: "4",
+      about: "Content Writer @Company",
+      name: "Leslie Alexander",
+      photo: author4,
+      facebookLink: "https://www.facebook.com/",
+      instargamLink: "https://www.instagram.com/undefined_duck/",
+      linkedInLink: "https://www.linkedin.com/",
+      twitterLink: "https://x.com/divineduck2",
+    },
+    title: "Economy Trends of 2024",
+    content:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    date: "Feb 15, 2024",
+    imgUrl: mockedImg,
+    category: "Economy",
+  },
+  {
+    id: "11",
+    author: {
+      id: "5",
+      about: "Content Writer @Company",
+      name: "Guy Hawkins",
+      photo: author5,
+      facebookLink: "https://www.facebook.com/",
+      instargamLink: "https://www.instagram.com/undefined_duck/",
+      linkedInLink: "https://www.linkedin.com/",
+      twitterLink: "https://x.com/divineduck2",
+    },
+    title: "How to Grow Your Tech Business",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    date: "Aug 10, 2023",
+    imgUrl: johnMockedImg,
+    category: "Technology",
+  },
+  {
+    id: "12",
+    author: {
+      id: "6",
+      about: "Content Writer @Company",
+      name: "Eleanor Pena",
+      photo: author6,
+      facebookLink: "https://www.facebook.com/",
+      instargamLink: "https://www.instagram.com/undefined_duck/",
+      linkedInLink: "https://www.linkedin.com/",
+      twitterLink: "https://x.com/divineduck2",
+    },
+    title: "How to Manage Startup Finances",
+    content:
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    date: "Dec 12, 2023",
+    imgUrl: mockedImg,
+    category: "Startup",
+  },
+  {
+    id: "13",
+    author: {
+      id: "7",
+      about: "Content Writer @Company",
+      name: "Robert Fox",
+      photo: author7,
+      facebookLink: "https://www.facebook.com/",
+      instargamLink: "https://www.instagram.com/undefined_duck/",
+      linkedInLink: "https://www.linkedin.com/",
+      twitterLink: "https://x.com/divineduck2",
+    },
+    title: "Mastering the Economy in 2024",
+    content:
+      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    date: "Nov 2, 2023",
+    imgUrl: mockedImg,
+    category: "Economy",
+  },
+  {
+    id: "14",
+    author: {
+      id: "8",
+      about: "Content Writer @Company",
+      name: "Jacob Jones",
+      photo: author8,
+      facebookLink: "https://www.facebook.com/",
+      instargamLink: "https://www.instagram.com/undefined_duck/",
+      linkedInLink: "https://www.linkedin.com/",
+      twitterLink: "https://x.com/divineduck2",
+    },
+    title: "The Future of Business Strategies",
+    content:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    date: "Jul 22, 2023",
+    imgUrl: johnMockedImg,
+    category: "Business",
   },
 ];
 
@@ -338,3 +494,7 @@ export const CATEGORY: Category[] = [
     content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
   },
 ];
+
+export const RANDOM_CHANCE = 0.5;
+export const MAX_RECOMMENDED_POSTS = 3;
+export const MAX_HOME_POSTS = 5;

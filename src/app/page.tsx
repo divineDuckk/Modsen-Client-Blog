@@ -12,7 +12,7 @@ import { JoinContainer } from "@/components/JoinContainer";
 import { MiniPost } from "@/components/MiniPost";
 import { Observer } from "@/components/Observer";
 import { Testimonials } from "@/components/Testimonials";
-import { getRoute, LINKS_LIST, MOCKED_POSTS } from "@/constants";
+import { getRoute, LINKS_LIST, MAX_HOME_POSTS } from "@/constants";
 import { Post } from "@/interfaces/post";
 import { findFirstStartupPost } from "@/utils/functions/findFirstStartupPost";
 
@@ -88,14 +88,17 @@ export default async function Home() {
                     View All
                   </Link>
                 </div>
-                {MOCKED_POSTS.slice(1, 5).map(({ author, date, title, id }) => (
-                  <MiniPost
-                    authorName={author.name}
-                    date={date}
-                    title={title}
-                    key={id}
-                  />
-                ))}
+                {posts
+                  .slice(1, MAX_HOME_POSTS)
+                  .map(({ author, date, title, id }) => (
+                    <MiniPost
+                      authorName={author.name}
+                      date={date}
+                      title={title}
+                      key={id}
+                      id={id}
+                    />
+                  ))}
               </div>
             </div>
             <AboutUsContainer atHome />
