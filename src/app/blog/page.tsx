@@ -1,18 +1,15 @@
 import Image from "next/image";
 
+import { fetchPosts } from "@/api/fetchPosts";
 import { sen } from "@/app/fonts";
 import { ActionLink } from "@/components/ActionLink";
 import { CategoryContainer } from "@/components/CategoryContainer";
 import { JoinContainer } from "@/components/JoinContainer";
 import { PostsContainer } from "@/components/PostsContainer";
 import { getRoute } from "@/constants";
-import { Post } from "@/interfaces/post";
-import { getAbsoluteUrl } from "@/utils/functions/getAbsoluteUrl";
 
 export default async function Blog() {
-  const baseUrl = getAbsoluteUrl();
-  const response = await fetch(`${baseUrl}/api`);
-  const posts: Post[] = await response.json();
+  const posts = await fetchPosts();
   const { author, content, date, imgUrl, title, id } = posts[0];
   return (
     <div className="w-full">

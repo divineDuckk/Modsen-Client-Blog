@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { fetchPosts } from "@/api/fetchPosts";
 import bgImg from "@/assets/businessman.png";
 import whyWeStartedBg from "@/assets/whyWeStarderBg.png";
 import { AboutUsContainer } from "@/components/AboutUsContainer";
@@ -14,14 +15,11 @@ import { Testimonials } from "@/components/Testimonials";
 import { getRoute, LINKS_LIST, MOCKED_POSTS } from "@/constants";
 import { Post } from "@/interfaces/post";
 import { findFirstStartupPost } from "@/utils/functions/findFirstStartupPost";
-import { getAbsoluteUrl } from "@/utils/functions/getAbsoluteUrl";
 
 import { sen } from "./fonts";
 
 export default async function Home() {
-  const baseUrl = getAbsoluteUrl();
-  const response = await fetch(`${baseUrl}/api`);
-  const posts = await response.json();
+  const posts = await fetchPosts();
 
   const startUpPost = findFirstStartupPost(posts);
   const { imgUrl, content, title, date, author, category, id }: Post =
