@@ -31,6 +31,9 @@ const config: Config = {
       height: {
         90: "90%",
       },
+      borderRadius: {
+        "5xl": "50px",
+      },
     },
   },
   plugins: [

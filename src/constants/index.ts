@@ -338,3 +338,8 @@ export const CATEGORY: Category[] = [
     content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
   },
 ];
+export const ABOUT_US_INFO = [
+  { info: "Blogs Published", value: "12+" },
+  { info: "Views on Finsweet", value: "18K+" },
+  { info: "Total active Users", value: "30K+" },
+];
