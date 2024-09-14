@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 
 import { fetchPostById } from "@/api/fetchPostById";
@@ -6,7 +7,7 @@ import { fetchPosts } from "@/api/fetchPosts";
 import { sen } from "@/app/fonts";
 import { JoinContainer } from "@/components/JoinContainer";
 import { WhatToRead } from "@/components/WhatToRead";
-import { getCategoryImg } from "@/constants";
+import { getCategoryImg, getRoute } from "@/constants";
 import { Post as PostType } from "@/interfaces/post";
 import { photoType } from "@/types";
 import { getRecommendedPosts } from "@/utils/functions/getRecommendedPosts";
@@ -27,7 +28,7 @@ const Post: FC<PostPageProps> = async ({ params }) => {
 
   const recommendedPosts = getRecommendedPosts(posts, slug, category);
 
-  const { name, photo } = author;
+  const { name, photo, id } = author;
   return (
     <div className="min-w-full mt-32 h-full">
       <div className="flex justify-center">
@@ -35,7 +36,14 @@ const Post: FC<PostPageProps> = async ({ params }) => {
           <div className="flex gap-4 items-center mb-6">
             <Image src={photo} alt={`${name} photo`} className="w-12" />
             <div>
-              <h3 className={`${sen.className} font-bold text-2xl`}>{name}</h3>
+              <Link
+                href={`${getRoute("author")}${id}`}
+                className="text-blue-600"
+              >
+                <h3 className={`${sen.className} font-bold text-2xl`}>
+                  {name}
+                </h3>
+              </Link>
               <p className="font-normal text-base opacity-65">
                 posted on {date}
               </p>
