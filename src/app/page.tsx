@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { fetchPosts } from "@/api/fetchPosts";
+import { display, heading1, heading2, heading3 } from "@/app/classes";
 import bgImg from "@/assets/businessman.png";
 import whyWeStartedBg from "@/assets/whyWeStarderBg.png";
 import { AboutUsContainer } from "@/components/AboutUsContainer";
@@ -16,11 +17,8 @@ import { getRoute, LINKS_LIST, MAX_HOME_POSTS } from "@/constants";
 import { Post } from "@/interfaces/post";
 import { findFirstStartupPost } from "@/utils/functions/findFirstStartupPost";
 
-import { sen } from "./fonts";
-
 export default async function Home() {
   const posts = await fetchPosts();
-
   const startUpPost = findFirstStartupPost(posts);
   const { imgUrl, content, title, date, author, category, id }: Post =
     startUpPost ? startUpPost : posts[0];
@@ -35,7 +33,7 @@ export default async function Home() {
                 Posted on{" "}
                 <span className="font-bold tracking-widest">{category}</span>
               </h3>
-              <h1 className={`text-6xl ${sen.className} font-bold`}>{title}</h1>
+              <h1 className={display}>{title}</h1>
               <p className="text-base font-normal">
                 By <span className="text-goldenYellow">{author.name}</span> |{" "}
                 {date}
@@ -60,18 +58,14 @@ export default async function Home() {
           <Observer>
             <div className="flex mt-96  justify-center gap-8 mb-32">
               <div>
-                <h2 className={`${sen.className} font-bold text-4xl mb-8`}>
-                  Featured Post
-                </h2>
+                <h2 className={`${heading2} mb-8`}>Featured Post</h2>
                 <section className="p-8 border border-solid border-gray-200 max-w-3xl">
                   <Image src={imgUrl} alt="post image" />
                   <p className="mt-8 mb-4">
                     By <span className="text-blue-600">{author.name}</span> |{" "}
                     {date}
                   </p>
-                  <h3 className={`${sen.className} font-bold text-3xl mb-4`}>
-                    {title}
-                  </h3>
+                  <h3 className={`${heading3} mb-4`}>{title}</h3>
                   <p className="font-normal text-base mb-8">{content}</p>
                   <ActionLink
                     content="Read more >"
@@ -81,9 +75,7 @@ export default async function Home() {
               </div>
               <div className="flex flex-col max-w-lg">
                 <div className="flex justify-between items-center mb-8">
-                  <h2 className={`${sen.className} font-bold text-4xl`}>
-                    All Posts
-                  </h2>
+                  <h2 className={heading2}>All Posts</h2>
                   <Link className="text-blue-500" href={getRoute("blog")}>
                     View All
                   </Link>
@@ -111,9 +103,7 @@ export default async function Home() {
                 <h3 className="font-semibold uppercase text-base tracking-widest mb-6">
                   Why we started
                 </h3>
-                <h2
-                  className={`${sen.className} font-bold text-5xl mb-7 tracking-wide`}
-                >
+                <h2 className={`${heading1} mb-7 tracking-wide`}>
                   It started out as a simple idea and evolved into our passion
                 </h2>
                 <p className="opacity-65 font-normal text-base mb-8">

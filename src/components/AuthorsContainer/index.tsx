@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { sen } from "@/app/fonts";
+import { heading2 } from "@/app/classes";
 import { MOCKED_AUTHORS } from "@/constants";
 
 import { AuthorCard } from "./AuthorCard";
@@ -16,9 +16,7 @@ export const AuthorsContainer: FC<AuthorsContainerProps> = ({ atHome }) => {
     : MOCKED_AUTHORS;
   return (
     <div className="mb-24">
-      <h2 className={`${sen.className} text-center font-bold text-4xl mb-12`}>
-        List of Authors
-      </h2>
+      <h2 className={`${heading2} text-center mb-12`}>List of Authors</h2>
       <section className="grid grid-cols-4 gap-8">
         {list.map((author) => (
           <AuthorCard key={author.id} {...author} />

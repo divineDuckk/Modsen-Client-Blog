@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 
-import { sen } from "@/app/fonts";
+import { heading3 } from "@/app/classes";
 import { getRoute } from "@/constants";
 import { Post } from "@/interfaces/post";
 
@@ -37,7 +37,7 @@ export const PostCard: FC<PostCardProps> = ({
         | {date}
       </p>
       <div className="flex flex-col justify-between h-full">
-        <h2 className={`${sen.className} font-bold text-3xl mb-4`}>{title}</h2>
+        <h2 className={`${heading3} mb-4`}>{title}</h2>
         <p className="text-base font-normal text-сharcoalBlue opacity-85">
           {content}
         </p>

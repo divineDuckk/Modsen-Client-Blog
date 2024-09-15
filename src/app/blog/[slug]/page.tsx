@@ -4,7 +4,7 @@ import { FC } from "react";
 
 import { fetchPostById } from "@/api/fetchPostById";
 import { fetchPosts } from "@/api/fetchPosts";
-import { sen } from "@/app/fonts";
+import { heading1, heading2, heading4 } from "@/app/classes";
 import { JoinContainer } from "@/components/JoinContainer";
 import { WhatToRead } from "@/components/WhatToRead";
 import { getCategoryImg, getRoute } from "@/constants";
@@ -40,24 +40,20 @@ const Post: FC<PostPageProps> = async ({ params }) => {
                 href={`${getRoute("author")}${id}`}
                 className="text-blue-600"
               >
-                <h3 className={`${sen.className} font-bold text-2xl`}>
-                  {name}
-                </h3>
+                <h3 className={`${heading4}`}>{name}</h3>
               </Link>
               <p className="font-normal text-base opacity-65">
                 posted on {date}
               </p>
             </div>
           </div>
-          <h2 className={`${sen.className} font-bold text-5xl max-w-3xl mb-8`}>
-            {title}
-          </h2>
+          <h2 className={`${heading1} max-w-3xl mb-8`}>{title}</h2>
           <div className="flex items-center gap-2 mb-16">
             <Image
               src={getCategoryImg(category) as photoType}
               alt="category image"
             />
-            <p className={`${sen.className} font-bold text-2xl`}>{category}</p>
+            <p className={`${heading4}`}>{category}</p>
           </div>
         </div>
       </div>
@@ -70,9 +66,7 @@ const Post: FC<PostPageProps> = async ({ params }) => {
       </div>
       <div className="flex justify-center w-full">
         <div className="mb-32 max-w-4xl">
-          <h2 className={`${sen.className} font-bold text-4xl mb-4  `}>
-            {title}
-          </h2>
+          <h2 className={`${heading2} mb-4`}>{title}</h2>
           <p className="font-normal text-base opacity-65">{content}</p>
         </div>
       </div>

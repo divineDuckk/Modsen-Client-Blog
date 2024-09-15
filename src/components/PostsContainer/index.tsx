@@ -3,7 +3,7 @@
 import { FC, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-import { sen } from "@/app/fonts";
+import { heading1, heading4 } from "@/app/classes";
 import { BlogPost } from "@/components/BlogPost";
 import { Post } from "@/interfaces/post";
 import { checkIsEndOfArray } from "@/utils/functions/checkIsEndOfArray";
@@ -47,15 +47,15 @@ export const PostsContainer: FC<PostsContainerProps> = ({ serverPosts }) => {
   const isTherePrevPage = page === 0;
 
   const prevClass = twMerge(
-    `${sen.className} font-bold text-2xl transition-all   ${isTherePrevPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`,
+    `${heading4} transition-all   ${isTherePrevPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`,
   );
   const nextClass = twMerge(
-    `${sen.className} font-bold text-2xl ${isThereNextPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"} transition-all`,
+    `${heading4} ${isThereNextPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"} transition-all`,
   );
   return (
     <div className="w-full" ref={ref}>
       <h1
-        className={`${sen.className} font-bold text-5xl text-left w-full pb-8 border-b border-solid border-gray-200 mb-16`}
+        className={`${heading1} text-left w-full pb-8 border-b border-solid border-gray-200 mb-16`}
       >
         All posts
       </h1>

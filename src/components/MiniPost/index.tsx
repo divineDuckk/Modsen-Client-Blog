@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FC } from "react";
 
-import { sen } from "@/app/fonts";
+import { heading4 } from "@/app/classes";
 import { getRoute } from "@/constants";
 
 interface MiniPostProps {
@@ -23,7 +23,7 @@ export const MiniPost: FC<MiniPostProps> = ({
         <p className="mb-2">
           By <span className="text-blue-500">{authorName}</span> | {date}
         </p>
-        <h2 className={`${sen.className} font-bold text-2xl`}>{title}</h2>
+        <h2 className={heading4}>{title}</h2>
       </Link>
     </article>
   );

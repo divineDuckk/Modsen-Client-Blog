@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 
-import { sen } from "@/app/fonts";
+import { heading2 } from "@/app/classes";
 import { getRoute } from "@/constants";
 import { Post } from "@/interfaces/post";
 
@@ -27,11 +27,7 @@ export const BlogPost: FC<BlogPostProps> = ({
         <h3 className="font-semibold text-base text-blue-800 tracking-widest mb-5 uppercase">
           {category}
         </h3>
-        <h2
-          className={`${sen.className} font-bold text-4xl tracking-tight mb-4`}
-        >
-          {title}
-        </h2>
+        <h2 className={`${heading2} tracking-tight mb-4`}>{title}</h2>
         <p className="font-normal text-base opacity-65">{content}</p>
       </div>
     </Link>

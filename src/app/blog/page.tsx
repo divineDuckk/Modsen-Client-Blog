@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { fetchPosts } from "@/api/fetchPosts";
-import { sen } from "@/app/fonts";
+import { heading2 } from "@/app/classes";
 import { ActionLink } from "@/components/ActionLink";
 import { CategoryContainer } from "@/components/CategoryContainer";
 import { JoinContainer } from "@/components/JoinContainer";
@@ -20,9 +20,7 @@ export default async function Blog() {
               <h3 className="font-medium text-base tracking-widest uppercase mb-5">
                 Featured Post
               </h3>
-              <h2 className={`${sen.className} font-bold text-4xl mb-4`}>
-                {title}
-              </h2>
+              <h2 className={`${heading2} mb-4`}>{title}</h2>
               <p className="font-medium text-sm mb-4">
                 By{" "}
                 <span className="font-medium text-sm text-blue-600">
