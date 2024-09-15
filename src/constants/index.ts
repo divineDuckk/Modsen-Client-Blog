@@ -116,6 +116,7 @@ export const MOCKED_POSTS: Post[] = [
     date: "May 23, 2022",
     imgUrl: johnMockedImg,
     category: "Business",
+    tags: ["Business", "Marketing"],
   },
   {
     id: "2",
@@ -135,6 +136,7 @@ export const MOCKED_POSTS: Post[] = [
     date: "Aug 23, 2021",
     imgUrl: johnMockedImg,
     category: "Business",
+    tags: ["Business", "Marketing"],
   },
   {
     id: "3",
@@ -154,6 +156,7 @@ export const MOCKED_POSTS: Post[] = [
     date: "Aug 23, 2021",
     imgUrl: johnMockedImg,
     category: "Economy",
+    tags: ["Business", "Marketing", "Life"],
   },
   {
     id: "4",
@@ -173,6 +176,7 @@ export const MOCKED_POSTS: Post[] = [
     date: "Aug 23, 2021",
     imgUrl: johnMockedImg,
     category: "Economy",
+    tags: ["Marketing", "Life"],
   },
   {
     id: "5",
@@ -192,6 +196,7 @@ export const MOCKED_POSTS: Post[] = [
     date: "Aug 23, 2021",
     imgUrl: johnMockedImg,
     category: "Technology",
+    tags: ["Technology", "Screen", "Life"],
   },
   {
     id: "6",
@@ -211,6 +216,7 @@ export const MOCKED_POSTS: Post[] = [
     date: "May 23, 2022",
     imgUrl: mockedImg,
     category: "Startup",
+    tags: ["Experience", "Business"],
   },
   {
     id: "7",
@@ -230,6 +236,7 @@ export const MOCKED_POSTS: Post[] = [
     date: "Jul 12, 2023",
     imgUrl: mockedImg,
     category: "Technology",
+    tags: ["Experience", "Business"],
   },
   {
     id: "8",
@@ -249,6 +256,7 @@ export const MOCKED_POSTS: Post[] = [
     date: "Jan 20, 2024",
     imgUrl: johnMockedImg,
     category: "Startup",
+    tags: ["Experience", "Business", "Life"],
   },
   {
     id: "9",
@@ -268,6 +276,7 @@ export const MOCKED_POSTS: Post[] = [
     date: "Mar 5, 2024",
     imgUrl: mockedImg,
     category: "Business",
+    tags: ["Experience", "Business", "Life"],
   },
   {
     id: "10",
@@ -287,6 +296,7 @@ export const MOCKED_POSTS: Post[] = [
     date: "Feb 15, 2024",
     imgUrl: mockedImg,
     category: "Economy",
+    tags: ["Marketing"],
   },
   {
     id: "11",
@@ -306,6 +316,7 @@ export const MOCKED_POSTS: Post[] = [
     date: "Aug 10, 2023",
     imgUrl: johnMockedImg,
     category: "Technology",
+    tags: ["Experience", "Technology"],
   },
   {
     id: "12",
@@ -325,6 +336,7 @@ export const MOCKED_POSTS: Post[] = [
     date: "Dec 12, 2023",
     imgUrl: mockedImg,
     category: "Startup",
+    tags: ["Experience", "Business", "Life"],
   },
   {
     id: "13",
@@ -344,6 +356,7 @@ export const MOCKED_POSTS: Post[] = [
     date: "Nov 2, 2023",
     imgUrl: mockedImg,
     category: "Economy",
+    tags: ["Marketing", "Life"],
   },
   {
     id: "14",
@@ -363,7 +376,19 @@ export const MOCKED_POSTS: Post[] = [
     date: "Jul 22, 2023",
     imgUrl: johnMockedImg,
     category: "Business",
+    tags: ["Business", "Screen"],
   },
+];
+
+export const TAGS = [
+  "Business",
+  "Experience",
+  "Screen",
+  "Technology",
+  "Marketing",
+  "Life",
+  "",
+  "All",
 ];
 
 export const VIDEO_URL =
@@ -494,7 +519,6 @@ export const CATEGORY: Category[] = [
     content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
   },
 ];
-
 
 export const RANDOM_CHANCE = 0.5;
 export const MAX_RECOMMENDED_POSTS = 3;
