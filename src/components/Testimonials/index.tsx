@@ -1,4 +1,4 @@
-import { sen } from "@/app/fonts";
+import { heading2 } from "@/app/classes";
 import { Carousel } from "@/components/Carousel";
 import { REVIEWS } from "@/constants";
 
@@ -11,9 +11,7 @@ export const Testimonials = () => {
         <h3 className="font-semibold text-base tracking-widest text-сharlestonGreen mb-3">
           TESTIMONIALS
         </h3>
-        <h2 className={`${sen.className} font-bold text-4xl mb-4`}>
-          What people say about our blog
-        </h2>
+        <h2 className={`${heading2} mb-4`}>What people say about our blog</h2>
         <p className="font-normal text-base text-сharlestonGreen">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor.

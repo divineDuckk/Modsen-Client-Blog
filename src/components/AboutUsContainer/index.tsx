@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FC } from "react";
 import { twMerge } from "tailwind-merge";
 
+import { heading2, heading3 } from "@/app/classes";
 import { sen } from "@/app/fonts";
 import { getRoute } from "@/constants";
 
@@ -32,7 +33,7 @@ export const AboutUsContainer: FC<AboutUsContainerProps> = ({
             {atHome ? "About us" : "Our Vision"}
           </p>
           <h2
-            className={`${sen.className} font-bold text-4xl text-сharlestonGreen mb-4 leading-normal`}
+            className={`${heading2} text-сharlestonGreen mb-4 leading-normal`}
           >
             {atHome
               ? "We are a community of content writers who share their learnings"
@@ -61,7 +62,7 @@ export const AboutUsContainer: FC<AboutUsContainerProps> = ({
             OUR MISSION
           </p>
           <h2
-            className={`${sen.className} font-bold text-3xl text-сharlestonGreen mb-4 leading-normal`}
+            className={`${heading3} text-сharlestonGreen mb-4 leading-normal`}
           >
             Creating valuable content for creatives all around the world
           </h2>
