@@ -30,6 +30,7 @@ export const Categories: FC<CategoriesProps> = ({ serverPosts }) => {
     setPosts(serverPosts.filter(({ tags }) => tags.includes(tag as tag)));
   };
   const handleTagClick = (tag: string) => () => {
+    setTag(tag);
     if (tag === "All") {
       setPosts(serverPosts);
       return;
@@ -61,9 +62,17 @@ export const Categories: FC<CategoriesProps> = ({ serverPosts }) => {
           <div>
             <h2 className={`${heading2} mb-6`}>All Tags</h2>
             <div className="flex flex-wrap gap-4">
-              {tagsWithOutEmptyString.map((tag) => (
-                <Tag key={tag} name={tag} handleClick={handleTagClick(tag)} />
-              ))}
+              {tagsWithOutEmptyString.map((tagName) => {
+                console.log(tag, tagName);
+                return (
+                  <Tag
+                    key={tagName}
+                    name={tagName}
+                    handleClick={handleTagClick(tagName)}
+                    isActive={tag === tagName}
+                  />
+                );
+              })}
             </div>
           </div>
         </aside>

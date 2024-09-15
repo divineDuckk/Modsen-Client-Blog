@@ -28,7 +28,6 @@ export const PostsContainer: FC<PostsContainerProps> = ({
   const [posts, setPosts] = useState<Post[]>(initialPosts);
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    console.log(posts, serverPosts);
     setPosts(initialPosts);
   }, [serverPosts]);
 
