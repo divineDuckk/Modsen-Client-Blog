@@ -495,6 +495,13 @@ export const CATEGORY: Category[] = [
   },
 ];
 
+
 export const RANDOM_CHANCE = 0.5;
 export const MAX_RECOMMENDED_POSTS = 3;
 export const MAX_HOME_POSTS = 5;
+
+export const ABOUT_US_INFO = [
+  { info: "Blogs Published", value: "12+" },
+  { info: "Views on Finsweet", value: "18K+" },
+  { info: "Total active Users", value: "30K+" },
+];

@@ -33,6 +33,9 @@ const config: Config = {
         600: "600px",
         300: "300px",
       },
+      borderRadius: {
+        "5xl": "50px",
+      },
     },
   },
   plugins: [

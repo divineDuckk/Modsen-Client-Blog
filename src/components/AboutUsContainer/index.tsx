@@ -7,13 +7,15 @@ import { sen } from "@/app/fonts";
 import { getRoute } from "@/constants";
 
 export interface AboutUsContainerProps {
-  atHome: boolean;
+  atHome?: boolean;
 }
 
-export const AboutUsContainer: FC<AboutUsContainerProps> = ({ atHome }) => {
+export const AboutUsContainer: FC<AboutUsContainerProps> = ({
+  atHome = false,
+}) => {
   const aboutClassName = twMerge(
     `py-24 flex`,
-    atHome ? "flex-row" : "flex-col-reverse items-center",
+    atHome ? "flex-row" : "flex-row-reverse items-center",
     `gap-14 justify-center bg-magnolia`,
   );
   return (
