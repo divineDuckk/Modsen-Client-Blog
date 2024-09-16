@@ -35,7 +35,7 @@ export const EmailLogicBlock = () => {
       return true;
     } catch (err) {
       if (err instanceof ValidationError) {
-        const newErrors: { email?: string } = {};
+        const newErrors: ErrorsState = {};
         err.inner.forEach((error) => {
           if (error.path === "email") {
             newErrors.email = error.message;
