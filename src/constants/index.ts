@@ -495,7 +495,6 @@ export const CATEGORY: Category[] = [
   },
 ];
 
-
 export const RANDOM_CHANCE = 0.5;
 export const MAX_RECOMMENDED_POSTS = 3;
 export const MAX_HOME_POSTS = 5;
