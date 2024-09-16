@@ -12,9 +12,13 @@ import { PAGE_SIZE } from "./constants";
 
 interface PostsContainerProps {
   serverPosts: Post[];
+  atAuthorPage?: boolean;
 }
 
-export const PostsContainer: FC<PostsContainerProps> = ({ serverPosts }) => {
+export const PostsContainer: FC<PostsContainerProps> = ({
+  serverPosts,
+  atAuthorPage = false,
+}) => {
   const [page, setPage] = useState(0);
   const [posts, setPosts] = useState<Post[]>(
     serverPosts.slice(page, PAGE_SIZE),
@@ -52,13 +56,13 @@ export const PostsContainer: FC<PostsContainerProps> = ({ serverPosts }) => {
   const nextClass = twMerge(
     `${heading4} ${isThereNextPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"} transition-all`,
   );
+
+  const headerClass = twMerge(
+    `${heading1} text-left w-full  ${!atAuthorPage && "border-b border-solid border-gray-200 pb-8"}  mb-16`,
+  );
   return (
     <div className="w-full" ref={ref}>
-      <h1
-        className={`${heading1} text-left w-full pb-8 border-b border-solid border-gray-200 mb-16`}
-      >
-        All posts
-      </h1>
+      <h1 className={headerClass}>{atAuthorPage ? "My posts" : "All posts"}</h1>
       <section className="flex flex-col gap-16 mb-16">
         {posts.map(({ category, content, id, imgUrl, title }) => (
           <BlogPost
