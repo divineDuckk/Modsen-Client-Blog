@@ -9,7 +9,7 @@ interface HintProps {
 
 export const Hint: FC<HintProps> = ({ tags, handleClick }) => {
   return (
-    <ul className="w-full list-none bg-white z-10 absolute -bottom-20 py-3 border border-solid border-gray-400 rounded-md min-h-20">
+    <ul className="w-full list-none bg-white z-10 absolute top-full py-3 border border-solid border-gray-400 rounded-md">
       {tags.map((tag) => (
         <li
           onClick={handleClick(tag)}
