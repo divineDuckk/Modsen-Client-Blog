@@ -1,0 +1,89 @@
+"use client";
+
+import { ChangeEvent, Dispatch, FC, SetStateAction, useState } from "react";
+import { ValidationError } from "yup";
+
+import { heading6 } from "@/app/classes";
+import { sen } from "@/app/fonts";
+import { Hint } from "@/components/Hint";
+import { TAGS } from "@/constants";
+
+import { validationSchema } from "./constants";
+
+interface SearchInputProps {
+  value: string;
+  setValue: Dispatch<SetStateAction<string>>;
+  handleSearchClick: () => void;
+  handleTagClick: (tag: string) => () => void;
+}
+
+export const SearchInput: FC<SearchInputProps> = ({
+  value,
+  setValue,
+  handleSearchClick,
+  handleTagClick,
+}) => {
+  const [error, setError] = useState<string | null>(null);
+  const [isHintShow, setIsHintShow] = useState(false);
+  const [tags, setTags] = useState<string[]>([]);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
+    setValue(newValue);
+    let filtredTags = TAGS.filter((tag) =>
+      tag.toLowerCase().includes(newValue.toLowerCase()),
+    );
+    if (newValue === "") {
+      filtredTags = [];
+      setError(null);
+    }
+    setTags(filtredTags);
+    if (!filtredTags.length) {
+      setIsHintShow(false);
+      return;
+    }
+    setTags(filtredTags);
+    setIsHintShow(true);
+  };
+
+  const handleHintClick = (tag: string) => () => {
+    setValue(tag);
+    setIsHintShow(false);
+    handleTagClick(tag)();
+  };
+
+  const checkValidation = async () => {
+    try {
+      await validationSchema.validate({ tag: value });
+      setError(null);
+      handleSearchClick();
+    } catch (err) {
+      if (err instanceof ValidationError) {
+        setError(err.message);
+      }
+    }
+    setValue("");
+  };
+
+  return (
+    <div className="flex flex-col mb-14 relative">
+      <div className="flex border border-solid border-gray-400 rounded-md">
+        <input
+          className={`${sen.className} text-sm font-bold tracking-tighter px-4 box-border flex-1 py-3 rounded-md outline-none`}
+          placeholder="Search for tag..."
+          type="text"
+          value={value}
+          onChange={handleChange}
+        />
+        <button
+          className={`${heading6} flex justify-center items-center bg-goldenYellow rounded-md px-4`}
+          onClick={checkValidation}
+        >
+          Search
+        </button>
+      </div>
+      {isHintShow && <Hint handleClick={handleHintClick} tags={tags} />}
+      {error && <p className="text-red-500 text-xs mt-2">{error}</p>}
+    </div>
+  );
+};
