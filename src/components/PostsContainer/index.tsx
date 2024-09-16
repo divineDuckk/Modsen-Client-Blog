@@ -51,14 +51,21 @@ export const PostsContainer: FC<PostsContainerProps> = ({
   const isTherePrevPage = page === 0;
 
   const prevClass = twMerge(
-    `${heading4} transition-all   ${isTherePrevPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`,
+    `${isTherePrevPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`,
+    "transition-all",
+    heading4,
   );
+
   const nextClass = twMerge(
-    `${heading4} ${isThereNextPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"} transition-all`,
+    `${isThereNextPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`,
+    "transition-all",
+    heading4,
   );
 
   const headerClass = twMerge(
-    `${heading1} text-left w-full  ${!atAuthorPage && "border-b border-solid border-gray-200 pb-8"}  mb-16`,
+    `${!atAuthorPage && "border-b border-solid border-gray-200 pb-8"}`,
+    "mb-16,text-left w-full ",
+    heading1,
   );
   return (
     <div className="w-full" ref={ref}>
