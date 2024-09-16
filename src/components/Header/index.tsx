@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 import { sen } from "@/app/fonts";
 import { Modal } from "@/components/Modal";
@@ -35,7 +36,10 @@ export const Header = () => {
           <li>
             <button
               onClick={handleOpen}
-              className={`cursor-pointer px-12 py-4 bg-white text-сharcoalBlue text-lg font-bold ${sen.className} hover:bg-orange-100 transition-all`}
+              className={twMerge(
+                `cursor-pointer px-12 py-4 bg-white text-сharcoalBlue text-lg font-bold hover:bg-orange-100 transition-all`,
+                sen.className,
+              )}
             >
               Video about us
             </button>

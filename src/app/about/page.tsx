@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { twMerge } from "tailwind-merge";
 
 import { sen } from "@/app/fonts";
 import aboutImage from "@/assets/about.png";
@@ -54,10 +55,10 @@ export default function About() {
       <AboutUsContainer />
       <div className="flex relative text-сharcoalBlue justify-between items-center mb-32">
         <div className="max-w-lg w-full">
-          <h2 className={`${sen.className} font-bold text-4xl mb-4`}>
+          <h2 className={twMerge(`font-bold text-4xl mb-4`, sen.className)}>
             Our team of creatives
           </h2>
-          <h3 className={`${sen.className} font-bold text-2xl mb-4`}>
+          <h3 className={twMerge(`font-bold text-2xl mb-4`, sen.className)}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt.
           </h3>
@@ -80,10 +81,10 @@ export default function About() {
           <Image src={threePersons} alt="hands image" />
         </div>
         <div className="max-w-lg w-full">
-          <h2 className={`${sen.className} font-bold text-4xl mb-4`}>
+          <h2 className={twMerge(`font-bold text-4xl mb-4`, sen.className)}>
             Why we started this Blog
           </h2>
-          <h3 className={`${sen.className} font-bold text-2xl mb-4`}>
+          <h3 className={twMerge(`font-bold text-2xl mb-4`, sen.className)}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt.
           </h3>

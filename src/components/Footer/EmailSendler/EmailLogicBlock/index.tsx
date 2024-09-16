@@ -75,7 +75,9 @@ export const EmailLogicBlock = () => {
   };
 
   const buttonClass = twMerge(
-    `px-12 py-4 bg-goldenYellow font-bold box-border text-lg ${sen.className} text-black ${success && "cursor-default opacity-65"}`,
+    `px-12 py-4 bg-goldenYellow font-bold box-border text-lg text-black `,
+    `${success && "cursor-default opacity-65"}`,
+    `${sen.className}`,
   );
 
   return (

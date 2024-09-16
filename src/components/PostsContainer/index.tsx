@@ -68,7 +68,10 @@ export const PostsContainer: FC<PostsContainerProps> = ({
     <div className="w-full" ref={ref}>
       {!atCategoryPage && (
         <h1
-          className={`${heading1} text-left w-full pb-8 border-b border-solid border-gray-200 mb-16`}
+          className={twMerge(
+            `text-left w-full pb-8 border-b border-solid border-gray-200 mb-16`,
+            heading1,
+          )}
         >
           All posts
         </h1>

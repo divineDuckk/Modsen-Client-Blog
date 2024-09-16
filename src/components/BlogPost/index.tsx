@@ -39,7 +39,7 @@ export const BlogPost: FC<BlogPostProps> = ({
         <h3 className="font-semibold text-base text-blue-800 tracking-widest mb-7 uppercase">
           {category}
         </h3>
-        <h2 className={`${heading2} tracking-tight mb-6`}>{title}</h2>
+        <h2 className={twMerge(`tracking-tight mb-6`, heading2)}>{title}</h2>
         <p className="font-normal text-base opacity-65">{content}</p>
       </div>
     </Link>

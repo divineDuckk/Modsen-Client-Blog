@@ -40,7 +40,7 @@ const Post: FC<PostPageProps> = async ({ params }) => {
                 href={`${getRoute("author")}${id}`}
                 className="text-blue-600"
               >
-                <h3 className={`${heading4}`}>{name}</h3>
+                <h3 className={heading4}>{name}</h3>
               </Link>
               <p className="font-normal text-base opacity-65">
                 posted on {date}

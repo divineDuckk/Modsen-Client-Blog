@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef, ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 import { VIEW_VALUE } from "./constants";
 
@@ -37,9 +38,10 @@ export const LazyLoad: React.FC<LazyLoadProps> = ({ children }) => {
   return (
     <div
       ref={ref}
-      className={`transition-all duration-500 ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      className={twMerge(
+        `transition-all duration-500 ease-out`,
+        ` ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`,
+      )}
     >
       {isVisible ? (
         children

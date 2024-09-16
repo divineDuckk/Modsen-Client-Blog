@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { twMerge } from "tailwind-merge";
 
 import { heading2 } from "@/app/classes";
 import { MOCKED_AUTHORS } from "@/constants";
@@ -22,7 +23,9 @@ export const AuthorsContainer: FC<AuthorsContainerProps> = ({
     : MOCKED_AUTHORS.slice(MIN_AUTHORS_SIZE, MAX_AUTHORS_SIZE);
   return (
     <div className="mb-24">
-      <h2 className={`${heading2} text-center mb-12`}>List of Authors</h2>
+      <h2 className={twMerge(`text-center mb-12`, heading2)}>
+        List of Authors
+      </h2>
       <section className="grid grid-cols-4 gap-8">
         {list.map((author) => (
           <AuthorCard key={author.id} {...author} />

@@ -33,7 +33,10 @@ export const AboutUsContainer: FC<AboutUsContainerProps> = ({
             {atHome ? "About us" : "Our Vision"}
           </p>
           <h2
-            className={`${heading2} text-сharlestonGreen mb-4 leading-normal`}
+            className={twMerge(
+              `text-сharlestonGreen mb-4 leading-normal`,
+              heading2,
+            )}
           >
             {atHome
               ? "We are a community of content writers who share their learnings"
@@ -50,7 +53,7 @@ export const AboutUsContainer: FC<AboutUsContainerProps> = ({
           </p>
           {atHome && (
             <Link
-              className={`${sen.className} font-bold text-blue-700`}
+              className={twMerge(`font-bold text-blue-700`, sen.className)}
               href={getRoute("aboutUs")}
             >
               {"Read More >"}
@@ -62,7 +65,10 @@ export const AboutUsContainer: FC<AboutUsContainerProps> = ({
             OUR MISSION
           </p>
           <h2
-            className={`${heading3} text-сharlestonGreen mb-4 leading-normal`}
+            className={twMerge(
+              `text-сharlestonGreen mb-4 leading-normal`,
+              heading3,
+            )}
           >
             Creating valuable content for creatives all around the world
           </h2>

@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 import { heading1, heading5 } from "@/app/classes";
 import { ContactForm } from "@/components/ContactForm";
 import { MapContainer } from "@/components/MapContainer";
@@ -10,7 +12,9 @@ export default function Contact() {
           <h3 className="font-black text-base tracking-widest mb-4 uppercase">
             Contact us
           </h3>
-          <h1 className={`${heading1} mb-6`}>Let’s Start a Conversation</h1>
+          <h1 className={twMerge(`b-6`, heading1)}>
+            Let’s Start a Conversation
+          </h1>
           <p className="text-base font-normal opacity-65">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -22,7 +26,7 @@ export default function Contact() {
             <p className="text-sm font-normal opacity-65 w-full border-b border-solid border-gray-300 pb-4 mb-5 tracking-wide">
               Working hours
             </p>
-            <h2 className={`${heading5} mb-4 max-w-52`}>
+            <h2 className={twMerge(`mb-4 max-w-52`, heading5)}>
               Monday To Friday 9:00 AM to 8:00 PM
             </h2>
             <p className="text-base font-normal opacity-65 ">
@@ -33,7 +37,9 @@ export default function Contact() {
             <p className="text-sm font-normal opacity-65 w-full border-b border-solid border-gray-300 pb-4 mb-5 tracking-wide">
               Contact Us
             </p>
-            <h2 className={`${heading5} mb-4 max-w-52`}>020 7993 2905</h2>
+            <h2 className={twMerge(`mb-4 max-w-52`, heading5)}>
+              020 7993 2905
+            </h2>
             <p className="text-base font-normal opacity-65 ">
               hello@finsweet.com
             </p>

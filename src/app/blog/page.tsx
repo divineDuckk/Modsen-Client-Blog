@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { twMerge } from "tailwind-merge";
 
 import { fetchPosts } from "@/api/fetchPosts";
 import { heading2 } from "@/app/classes";
@@ -20,7 +21,7 @@ export default async function Blog() {
               <h3 className="font-medium text-base tracking-widest uppercase mb-5">
                 Featured Post
               </h3>
-              <h2 className={`${heading2} mb-4`}>{title}</h2>
+              <h2 className={twMerge(`mb-4`, heading2)}>{title}</h2>
               <p className="font-medium text-sm mb-4">
                 By{" "}
                 <span className="font-medium text-sm text-blue-600">

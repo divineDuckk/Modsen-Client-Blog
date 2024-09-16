@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
+import { twMerge } from "tailwind-merge";
 
 import { heading3 } from "@/app/classes";
 import { getRoute } from "@/constants";
@@ -37,7 +38,7 @@ export const PostCard: FC<PostCardProps> = ({
         | {date}
       </p>
       <div className="flex flex-col justify-between h-full">
-        <h2 className={`${heading3} mb-4`}>{title}</h2>
+        <h2 className={twMerge(`mb-4`, heading3)}>{title}</h2>
         <p className="text-base font-normal text-сharcoalBlue opacity-85">
           {content}
         </p>

@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { twMerge } from "tailwind-merge";
 
 import { heading6 } from "@/app/classes";
 
@@ -14,7 +15,7 @@ export const Hint: FC<HintProps> = ({ tags, handleClick }) => {
         <li
           onClick={handleClick(tag)}
           key={tag}
-          className={`${heading6} cursor-pointer hover:bg-linen px-3`}
+          className={twMerge(`cursor-pointer hover:bg-linen px-3`, heading6)}
         >
           {tag}
         </li>

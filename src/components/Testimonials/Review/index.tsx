@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FC } from "react";
+import { twMerge } from "tailwind-merge";
 
 import { sen } from "@/app/fonts";
 import { photoType } from "@/types";
@@ -23,13 +24,17 @@ export const Review: FC<ReviewProps> = ({
 }) => {
   return (
     <article className="w-full flex-shrink-0">
-      <h2 className={`${sen.className} mb-28 font-bold text-2xl max-w-md`}>
+      <h2
+        className={twMerge(` mb-28 font-bold text-2xl max-w-md`, sen.className)}
+      >
         {review}
       </h2>
       <div className="flex gap-4 items-center mb-4">
         <Image src={photo} alt={`${name} photo`} />
         <div>
-          <h3 className={`${sen.className} font-bold text-2xl`}>{name}</h3>
+          <h3 className={twMerge(`font-bold text-2xl`, sen.className)}>
+            {name}
+          </h3>
           <p className="font-normal text-base opacity-65">
             {city}, {country}
           </p>
