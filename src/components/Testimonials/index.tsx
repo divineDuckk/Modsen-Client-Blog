@@ -6,9 +6,9 @@ import { Review } from "./Review";
 
 export const Testimonials = () => {
   return (
-    <div className="flex flex-col items-center bg-linen justify-center mb-32 xl:flex-row">
-      <div className="pr-20  max-w-96 mt-20 h-fit">
-        <h3 className="font-semibold text-base tracking-widest text-сharlestonGreen mb-3">
+    <div className="flex flex-col items-center bg-linen justify-center mb-32 xl:flex-row xl:items-start">
+      <div className="pr-20 max-w-96  h-fit">
+        <h3 className="font-semibold mt-20 text-base tracking-widest text-сharlestonGreen mb-3">
           TESTIMONIALS
         </h3>
         <h2 className={`${heading2} mb-4`}>What people say about our blog</h2>
@@ -17,7 +17,7 @@ export const Testimonials = () => {
           eiusmod tempor.
         </p>
       </div>
-      <div className="flex justify-center pl-20 mt-20 mb-20 border-0 xl:border-l-2 border-solid border-l-gray-200 ">
+      <div className="flex mt-20 justify-center pl-20  mb-20 border-0 xl:border-l-2 border-solid border-l-gray-200 ">
         <Carousel>
           {REVIEWS.map(({ id, review, reviewer }) => {
             const { city, country, name, photo } = reviewer;

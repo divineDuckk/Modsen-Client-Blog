@@ -1,4 +1,4 @@
-import { photoType } from "@/types";
+import { photoType, tag } from "@/types";
 
 import { Author } from "./author";
 
@@ -10,4 +10,5 @@ export interface Post {
   imgUrl: photoType;
   id: string;
   category: string;
+  tags: tag[];
 }
