@@ -1,12 +1,13 @@
 "use client";
 
+import { FC } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 import { CENTER, MARKERS, ZOOM } from "./constants";
 
 import "leaflet/dist/leaflet.css";
 
-export const Map = () => {
+const Map: FC = () => {
   return (
     <MapContainer
       center={CENTER}
@@ -26,3 +27,4 @@ export const Map = () => {
     </MapContainer>
   );
 };
+export default Map;

@@ -1,6 +1,6 @@
 import { heading1, heading5 } from "@/app/classes";
 import { ContactForm } from "@/components/ContactForm";
-import { Map } from "@/components/Map";
+import { MapContainer } from "@/components/MapContainer";
 
 export default function Contact() {
   return (
@@ -41,7 +41,7 @@ export default function Contact() {
         </div>
         <ContactForm />
       </div>
-      <Map />
+      <MapContainer />
     </main>
   );
 }
