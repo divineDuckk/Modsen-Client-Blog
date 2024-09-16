@@ -35,6 +35,7 @@ export const Categories: FC<CategoriesProps> = ({ serverPosts }) => {
       setPosts(serverPosts);
       return;
     }
+    console.log(tag);
     setPosts(serverPosts.filter(({ tags }) => tags.includes(tag as tag)));
   };
 
@@ -56,14 +57,14 @@ export const Categories: FC<CategoriesProps> = ({ serverPosts }) => {
           <SearchInput
             value={tag}
             setValue={setTag}
-            handleClick={handleSearchClick}
+            handleSearchClick={handleSearchClick}
+            handleTagClick={handleTagClick}
           />
           <MiniCategoriesContainer />
           <div>
             <h2 className={`${heading2} mb-6`}>All Tags</h2>
             <div className="flex flex-wrap gap-4">
               {tagsWithOutEmptyString.map((tagName) => {
-                console.log(tag, tagName);
                 return (
                   <Tag
                     key={tagName}
