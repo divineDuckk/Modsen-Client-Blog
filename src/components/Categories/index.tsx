@@ -35,7 +35,6 @@ export const Categories: FC<CategoriesProps> = ({ serverPosts }) => {
       setPosts(serverPosts);
       return;
     }
-    console.log(tag);
     setPosts(serverPosts.filter(({ tags }) => tags.includes(tag as tag)));
   };
 

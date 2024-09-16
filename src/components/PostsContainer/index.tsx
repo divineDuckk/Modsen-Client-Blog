@@ -57,10 +57,12 @@ export const PostsContainer: FC<PostsContainerProps> = ({
   const isNeedShowButtons = serverPosts.length > pageSize;
 
   const prevClass = twMerge(
-    `${heading4} transition-all   ${isTherePrevPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`,
+    `${heading4} transition-all   `,
+    `${isTherePrevPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`,
   );
   const nextClass = twMerge(
-    `${heading4} ${isThereNextPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"} transition-all`,
+    `${heading4}  transition-all`,
+    `${isThereNextPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`,
   );
   return (
     <div className="w-full" ref={ref}>
