@@ -75,14 +75,12 @@ export const PostsContainer: FC<PostsContainerProps> = ({
     "mb-16,text-left w-full ",
     heading1,
   );
- 
+
   return (
     <div className="w-full" ref={ref}>
       {!atCategoryPage && (
-        <h1
-          <h1 className={headerClass}>{atAuthorPage ? "My posts" : "All posts"}</h1>
-        >
-          All posts
+        <h1 className={headerClass}>
+          {atAuthorPage ? "My posts" : "All posts"}
         </h1>
       )}
       <section className="flex flex-col gap-16 mb-16">
