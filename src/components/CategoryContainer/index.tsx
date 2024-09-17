@@ -16,7 +16,8 @@ export const CategoryContainer: FC<CategoryContainerProps> = ({
   atHome = false,
 }) => {
   const categoryClass = twMerge(
-    `${sen.className} ${atHome ? "text-center" : "text-left"} font-bold text-3xl mb-12`,
+    `${sen.className}`,
+    `${atHome ? "text-center" : "text-left"} font-bold text-3xl mb-12`,
   );
   return (
     <div className="w-full">
