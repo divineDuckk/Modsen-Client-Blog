@@ -20,8 +20,8 @@ export const BlogPost: FC<BlogPostProps> = ({
   atCategoryPage = false,
 }) => {
   const imgClass = twMerge(
-    `object-cover  h-80 w-full`,
-    `${atCategoryPage ? "max-w-80 h-full" : "max-w-md"}`,
+    `object-cover w-full`,
+    `${atCategoryPage ? "max-w-80 h-80" : "max-w-md h-full max-h-80"}`,
   );
   const contentClass = twMerge(
     `${atCategoryPage ? "max-w-lg h-80  flex flex-col justify-center" : "max-w-2xl"} h-full`,
