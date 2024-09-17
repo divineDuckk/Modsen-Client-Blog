@@ -1,14 +1,16 @@
 "use client";
 
 import emailjs from "emailjs-com";
+import { useLocale, useTranslations } from "next-intl";
 import { ChangeEvent, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { ValidationError } from "yup";
 
 import { heading4 } from "@/app/classes";
+import { localeType } from "@/types";
 import { returnEmailStatusMsg } from "@/utils/functions/returnEmailStatusMsg";
 
-import { contactFormSchema, QUERY_RALATED } from "./constants";
+import { EN_QUERY_RALATED, getSchema, RU_QUERY_RALATED } from "./constants";
 
 export const ContactForm = () => {
   const [name, setName] = useState("");
@@ -18,6 +20,12 @@ export const ContactForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sending, setSending] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const t = useTranslations("EmailForm");
+
+  const locale = useLocale() as localeType;
+
+  const issues = locale === "ru" ? RU_QUERY_RALATED : EN_QUERY_RALATED;
 
   const handleSelect = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedValue(event.target.value);
@@ -43,7 +51,7 @@ export const ContactForm = () => {
       message,
     };
     try {
-      contactFormSchema.validateSync(data, { abortEarly: false });
+      getSchema(locale).validateSync(data, { abortEarly: false });
       setErrors({});
       return true;
     } catch (err) {
@@ -101,7 +109,7 @@ export const ContactForm = () => {
           `p-6 text-charcoalBlue border border-solid border-gray-300`,
           `${errors.name && "border-red-500"}`,
         )}
-        placeholder="Full Name"
+        placeholder={t("fullName")}
         disabled={success}
       />
       <p
@@ -121,7 +129,7 @@ export const ContactForm = () => {
           `p-6 text-charcoalBlue border border-solid border-gray-300 mt-4`,
           `${errors.name && "border-red-500"}`,
         )}
-        placeholder="Your Email"
+        placeholder={t("email")}
         disabled={success}
       />
       <p
@@ -143,9 +151,9 @@ export const ContactForm = () => {
         disabled={success}
       >
         <option value="" disabled>
-          Query Related
+          {t("queryRelated")}
         </option>
-        {QUERY_RALATED.map((query) => (
+        {issues.map((query) => (
           <option key={query} value={query}>
             {query}
           </option>
@@ -184,7 +192,7 @@ export const ContactForm = () => {
         className={twMerge(heading4, "bg-goldenYellow py-4 mt-4")}
         disabled={sending || success}
       >
-        {returnEmailStatusMsg(sending, success, "Send Message")}
+        {returnEmailStatusMsg(sending, success, t("button"), locale)}
       </button>
     </form>
   );

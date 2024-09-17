@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { FC } from "react";
 import { twMerge } from "tailwind-merge";
 
 import { sen } from "@/app/fonts";
+import { Link } from "@/i18n/routing";
 
 export interface ActionLinkProps {
   content: string;

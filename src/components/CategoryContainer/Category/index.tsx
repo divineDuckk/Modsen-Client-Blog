@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FC } from "react";
 import { twMerge } from "tailwind-merge";
 
 import { sen } from "@/app/fonts";
 import { getRoute } from "@/constants";
+import { Link } from "@/i18n/routing";
 import { photoType } from "@/types";
 
 interface CategoryProps {

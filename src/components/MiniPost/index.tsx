@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { FC } from "react";
 
 import { heading4 } from "@/app/classes";
 import { getRoute } from "@/constants";
+import { Link } from "@/i18n/routing";
 
 interface MiniPostProps {
   authorName: string;

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FC } from "react";
 
 import { fetchPostById } from "@/api/fetchPostById";
@@ -8,6 +7,7 @@ import { heading1, heading2, heading4 } from "@/app/classes";
 import { JoinContainer } from "@/components/JoinContainer";
 import { WhatToRead } from "@/components/WhatToRead";
 import { getCategoryImg, getRoute } from "@/constants";
+import { Link } from "@/i18n/routing";
 import { Post as PostType } from "@/interfaces/post";
 import { photoType } from "@/types";
 import { getRecommendedPosts } from "@/utils/functions/getRecommendedPosts";

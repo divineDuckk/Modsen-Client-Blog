@@ -1,16 +1,18 @@
 "use client";
 
 import emailjs from "emailjs-com";
+import { useLocale, useTranslations } from "next-intl";
 import { ChangeEvent, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { ValidationError, InferType } from "yup";
+import { ValidationError } from "yup";
 
 import { sen } from "@/app/fonts";
+import { localeType } from "@/types";
 import { returnEmailStatusMsg } from "@/utils/functions/returnEmailStatusMsg";
 
-import { schema } from "./constants";
+import { getSchema } from "./constants";
 
-type dataInputType = InferType<typeof schema>;
+type dataInputType = { email: string };
 
 interface ErrorsState {
   email?: string;
@@ -22,6 +24,9 @@ export const EmailLogicBlock = () => {
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState<ErrorsState>({});
 
+  const t = useTranslations("Footer");
+  const locale = useLocale() as localeType;
+
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     const email = e.target.value;
     setEmail(email);
@@ -30,7 +35,7 @@ export const EmailLogicBlock = () => {
 
   const validate = (data: dataInputType) => {
     try {
-      schema.validateSync(data, { abortEarly: false });
+      getSchema(locale).validateSync(data, { abortEarly: false });
       setErrors({});
       return true;
     } catch (err) {
@@ -66,8 +71,7 @@ export const EmailLogicBlock = () => {
           setEmail("");
           setSuccess(true);
         },
-        (rej) => {
-          console.log(rej);
+        () => {
           setSending(false);
           setSuccess(false);
         },
@@ -85,7 +89,7 @@ export const EmailLogicBlock = () => {
       <div className="w-full max-w-80">
         <input
           className="min-w-44 py-4 bg-transparent border box-border text-lg border-gray-600 w-full pl-6 text-white pr-6"
-          placeholder="Enter Your Email"
+          placeholder={t("email")}
           value={email}
           onChange={handleEmailChange}
           disabled={success}
@@ -98,7 +102,7 @@ export const EmailLogicBlock = () => {
         onClick={handleSendEmail}
         disabled={sending || success}
       >
-        {returnEmailStatusMsg(sending, success)}
+        {returnEmailStatusMsg(sending, success, t("button"), locale)}
       </button>
     </div>
   );

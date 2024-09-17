@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FC } from "react";
 import { twMerge } from "tailwind-merge";
 
 import { heading3 } from "@/app/classes";
 import { getRoute } from "@/constants";
+import { Link } from "@/i18n/routing";
 import { Author } from "@/interfaces/author";
 
 import { createLinks } from "./constants";

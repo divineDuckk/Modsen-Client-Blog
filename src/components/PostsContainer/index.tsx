@@ -13,16 +13,16 @@ import { PAGE_SIZE } from "./constants";
 
 interface PostsContainerProps {
   serverPosts: Post[];
+  atAuthorPage?: boolean;
   atCategoryPage?: boolean;
   pageSize?: number;
-  atAuthorPage?: boolean;
 }
 
 export const PostsContainer: FC<PostsContainerProps> = ({
   serverPosts,
+  atAuthorPage = false,
   atCategoryPage = false,
   pageSize = PAGE_SIZE,
-  atAuthorPage = false,
 }) => {
   const [page, setPage] = useState(0);
   const initialPosts =
@@ -75,6 +75,7 @@ export const PostsContainer: FC<PostsContainerProps> = ({
     "mb-16 text-left w-full",
     heading1,
   );
+
   return (
     <div className="w-full" ref={ref}>
       {!atCategoryPage && (

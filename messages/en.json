@@ -1,0 +1,150 @@
+{
+  "Navigation": {
+    "title": "Modsen Client Blog",
+    "home": "Home",
+    "blog": "Blog",
+    "about us": "About Us",
+    "contact us": "Contact Us",
+    "privacy policy": "Privacy Policy",
+    "videoAboutUs": "Video about us"
+  },
+  "KnowOurTeam": {
+    "ourTeam": "Our team of creatives",
+    "whyStarted": "Why we started this Blog"
+  },
+  "MissionVision": {
+    "aboutUs": "About Us",
+    "sharingTeam": "We are a team of content writers who share their learnings",
+    "blogsPublished": "Blogs Published",
+    "viewsOnFinsweet": "Views on Finsweet",
+    "totalUsers": "Total active Users"
+  },
+  "AuthorHero": {
+    "hello": "Hey there, I’m {name} and welcome to my Blog"
+  },
+  "AuthorPosts": {
+    "posts": "My Posts",
+    "noPosts": "There is no posts..."
+  },
+  "BlogPostHeader": {
+    "postedOn": "Posted on {date}"
+  },
+  "OtherPosts": {
+    "readNext": "What to read next"
+  },
+  "BlogCards": {
+    "allPosts": "All posts",
+    "prev": "< Prev",
+    "next": "Next >"
+  },
+  "BlogHeader": {
+    "postedOn": "posted on {label}",
+    "readMore": "Read More >"
+  },
+  "CategoryHero": {
+    "title": "Categories",
+    "subtitle": "blog > categories"
+  },
+  "CategorySection": {
+    "noPosts": "Found no posts with this filters...",
+    "inputPlaceholder": "Search...",
+    "categories": "Categories",
+    "tags": "Tags",
+    "search": "Search"
+  },
+  "AllPosts": {
+    "allPosts": "All posts",
+    "viewAll": "View all"
+  },
+  "FeaturedPost": {
+    "featured": "Featured Post",
+    "readMore": "Read More >"
+  },
+  "Home": {
+    "readMore": "Read More >",
+    "postedOn": "Posted on"
+  },
+  "LogosList": {
+    "weAre": "We are",
+    "featured": "Featured in"
+  },
+  "Testimonials": {
+    "testimonials": "Testimonials",
+    "title": "What people say about our blog"
+  },
+  "WhyWeStarted": {
+    "subtitle": "why we started",
+    "title": "It started out as a simple idea and evolved into our passion",
+    "discover": "Discover our story >"
+  },
+  "Contact": {
+    "subtitle": "contact us",
+    "title": "Let’s Start a Conversation"
+  },
+  "EmailForm": {
+    "fullName": "Full Name",
+    "email": "Your Email",
+    "textArea": "Message",
+    "button": "Send Message",
+    "queryRelated": "Query Related",
+    "subscribe": "Subscribe"
+  },
+  "WorkingHours": {
+    "workHours": "Working hours",
+    "weekDays": "Monday To Friday",
+    "time": "9:00 AM to 8:00 PM",
+    "support": "Our Support Team is available 24/7",
+    "contactUs": "Contact Us"
+  },
+  "Privacy": {
+    "title": "Privacy Policy",
+    "description": "Last Updated on 27th January 2022"
+  },
+  "AboutUs": {
+    "aboutUsTitle": "About us",
+    "aboutUsHeader": "We are a community of content writers who share their learnings",
+    "missionTitle": "Our mission",
+    "missionText": "Creating valuable content for creatives all around the world",
+    "readMore": "Read More >",
+    "ourTeam": "Our team of creatives",
+    "whyStarted": "Why we started this Blog",
+    "ourVision": "Our vision",
+    "ourVisionText": "A platform that empowers individuals to improve"
+  },
+  "AuthorsList": {
+    "title": "List of Authors"
+  },
+  "ChooseCategory": {
+    "title": "Choose A Category"
+  },
+  "Footer": {
+    "title": "Subscribe to our news letter to get latest updates and news",
+    "email": "Enter Your Email",
+    "button": "Subscribe"
+  },
+  "JoinOurTeam": {
+    "title": "Join our team to be a part of our story",
+    "link": "Join Now"
+  },
+  "Categories": {
+    "Startup": "Startup",
+    "Business": "Business",
+    "Economy": "Economy",
+    "Technology": "Technology"
+  },
+  "Date": {
+    "By": "By",
+    "Jan": "Jan",
+    "Feb": "Feb",
+    "Mar": "Mar",
+    "Apr": "Apr",
+    "May": "May",
+    "Jun": "Jun",
+    "Jul": "Jul",
+    "Aug": "Aug",
+    "Sep": "Sep",
+    "Oct": "Oct",
+    "Nov": "Nov",
+    "Dec": "Dec"
+  }
+}

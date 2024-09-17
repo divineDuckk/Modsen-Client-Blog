@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 import { FC } from "react";
 import { twMerge } from "tailwind-merge";
 
 import { heading3 } from "@/app/classes";
 import { getRoute } from "@/constants";
+import { Link } from "@/i18n/routing";
 import { photoType } from "@/types";
 
 interface CategoryProps {
