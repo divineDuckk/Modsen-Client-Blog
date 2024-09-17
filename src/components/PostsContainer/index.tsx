@@ -13,12 +13,14 @@ import { PAGE_SIZE } from "./constants";
 
 interface PostsContainerProps {
   serverPosts: Post[];
+  atAuthorPage?: boolean;
   atCategoryPage?: boolean;
   pageSize?: number;
 }
 
 export const PostsContainer: FC<PostsContainerProps> = ({
   serverPosts,
+  atAuthorPage = false,
   atCategoryPage = false,
   pageSize = PAGE_SIZE,
 }) => {
@@ -57,18 +59,28 @@ export const PostsContainer: FC<PostsContainerProps> = ({
   const isNeedShowButtons = serverPosts.length > pageSize;
 
   const prevClass = twMerge(
-    `${heading4} transition-all   `,
     `${isTherePrevPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`,
+    "transition-all",
+    heading4,
   );
+
   const nextClass = twMerge(
-    `${heading4}  transition-all`,
     `${isThereNextPage ? "opacity-65 cursor-not-allowed" : "hover:scale-105"}`,
+    "transition-all",
+    heading4,
   );
+
+  const headerClass = twMerge(
+    `${!atAuthorPage && "border-b border-solid border-gray-200 pb-8"}`,
+    "mb-16,text-left w-full ",
+    heading1,
+  );
+ 
   return (
     <div className="w-full" ref={ref}>
       {!atCategoryPage && (
         <h1
-          className={`${heading1} text-left w-full pb-8 border-b border-solid border-gray-200 mb-16`}
+          <h1 className={headerClass}>{atAuthorPage ? "My posts" : "All posts"}</h1>
         >
           All posts
         </h1>
