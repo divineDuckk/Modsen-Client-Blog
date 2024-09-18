@@ -54,7 +54,7 @@
   },
   "AllPosts": {
     "allPosts": "Все посты",
-    "viewAll": "Еще"
+    "viewAll": "Посмотреть все"
   },
   "FeaturedPost": {
     "featured": "Избранный пост",
@@ -131,6 +131,9 @@
     "Business": "Бизнес",
     "Economy": "Экономика",
     "Technology": "Технология"
+  },
+  "Language": {
+    "lan": "РУ"
   },
   "Date": {
     "By": "От",

@@ -29,8 +29,9 @@ export default async function Home() {
     "Home",
     "FeaturedPost",
     "AllPosts",
-    "Categories",
+    "ChooseCategory",
     "Date",
+    "WhyWeStarted",
   ]);
 
   const { remains, month } = getMonthAndYear(date);
@@ -73,26 +74,29 @@ export default async function Home() {
           <Observer>
             <div className="flex mt-96  justify-center gap-8 mb-32">
               <div>
-                <h2 className={`${heading2} mb-8`}>Featured Post</h2>
+                <h2 className={`${heading2} mb-8`}>
+                  {t("FeaturedPost.featured")}
+                </h2>
                 <section className="p-8 border border-solid border-gray-200 max-w-3xl">
                   <Image src={imgUrl} alt="post image" />
                   <p className="mt-8 mb-4">
-                    By <span className="text-blue-600">{author.name}</span> |{" "}
-                    {date}
+                    {t("Date.By")}{" "}
+                    <span className="text-blue-600">{author.name}</span> |{" "}
+                    {t(`Date.${month}`)} {remains}
                   </p>
                   <h3 className={`${heading3} mb-4`}>{title}</h3>
                   <p className="font-normal text-base mb-8">{content}</p>
                   <ActionLink
-                    content="Read more >"
+                    content={t("FeaturedPost.readMore")}
                     link={`${getRoute("blogPost")}${id}`}
                   />
                 </section>
               </div>
               <div className="flex flex-col max-w-lg">
                 <div className="flex justify-between items-center mb-8">
-                  <h2 className={heading2}>All Posts</h2>
+                  <h2 className={heading2}>{t("AllPosts.allPosts")}</h2>
                   <Link className="text-blue-500" href={getRoute("blog")}>
-                    View All
+                    {t("AllPosts.viewAll")}
                   </Link>
                 </div>
                 {posts
@@ -109,17 +113,17 @@ export default async function Home() {
               </div>
             </div>
             <AboutUsContainer atHome />
-            <CategoryContainer title="Choose A Catagory" atHome />
+            <CategoryContainer title={t("ChooseCategory.title")} atHome />
             <div className="flex relative mb-32">
               <div className="object-cover h-full">
                 <Image src={whyWeStartedBg} alt="friends background" />
               </div>
               <div className="p-20 absolute right-0 max-w-2xl bg-white bottom-0">
                 <h3 className="font-semibold uppercase text-base tracking-widest mb-6">
-                  Why we started
+                  {t("WhyWeStarted.subtitle")}
                 </h3>
                 <h2 className={`${heading1} mb-7 tracking-wide`}>
-                  It started out as a simple idea and evolved into our passion
+                  {t("WhyWeStarted.title")}
                 </h2>
                 <p className="opacity-65 font-normal text-base mb-8">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -128,7 +132,7 @@ export default async function Home() {
                   laboris nisi ut aliquip.
                 </p>
                 <ActionLink
-                  content="Discover our story >"
+                  content={t("WhyWeStarted.discover")}
                   link={getRoute("aboutUs")}
                 />
               </div>
