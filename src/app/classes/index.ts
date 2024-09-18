@@ -2,7 +2,7 @@ import { twMerge } from "tailwind-merge";
 
 import { sen } from "@/app/fonts";
 
-export const display = twMerge(`ont-bold text-6xl`, sen.className);
+export const display = twMerge(`font-bold text-6xl`, sen.className);
 export const heading1 = twMerge(` font-bold text-5xl`, sen.className);
 export const heading2 = twMerge(` font-bold text-4xl`, sen.className);
 export const heading3 = twMerge(` font-bold text-3xl`, sen.className);
