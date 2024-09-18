@@ -22,7 +22,7 @@
     "viewsOnFinsweet": "Views on Finsweet",
     "totalUsers": "Total active Users"
   },
-  "AuthorHero": {
+  "Author": {
     "hello": "Hey there, I’m {name} and welcome to my Blog"
   },
   "AuthorPosts": {
@@ -46,14 +46,23 @@
   },
   "CategoryHead": {
     "title": "All Categories",
-    "subtitle": "blog > categories"
+    "subtitle": "blog > {title}"
   },
   "CategorySection": {
-    "noPosts": "Found no posts with this filters...",
+    "noPosts": "No posts available",
     "inputPlaceholder": "Search...",
     "categories": "Categories",
-    "tags": "Tags",
+    "tags": "All Tags",
     "search": "Search"
+  },
+  "Tags": {
+    "Business": "Business",
+    "Experience": "Experience",
+    "Screen": "Screen",
+    "Technology": "Technology",
+    "Marketing": "Marketing",
+    "Life": "Life",
+    "All": "All"
   },
   "AllPosts": {
     "allPosts": "All posts",

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import { FC } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -13,7 +14,9 @@ interface CategoryProps {
   title: string;
 }
 
-export const Category: FC<CategoryProps> = ({ content, icon, title }) => {
+export const Category: FC<CategoryProps> = async ({ content, icon, title }) => {
+  const t = await getTranslations("Categories");
+
   return (
     <Link
       href={`${getRoute("category")}${title}`}
@@ -23,7 +26,7 @@ export const Category: FC<CategoryProps> = ({ content, icon, title }) => {
         <Image src={icon} alt="category icon" />
       </div>
       <h3 className={twMerge(`font-bold text-3xl mb-1`, sen.className)}>
-        {title}
+        {t(title)}
       </h3>
       <p className="font-normal text-base opacity-65">{content}</p>
     </Link>

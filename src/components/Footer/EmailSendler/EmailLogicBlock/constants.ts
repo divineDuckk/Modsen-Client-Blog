@@ -2,15 +2,17 @@ import { object, string } from "yup";
 
 import { localeType } from "@/types";
 
-export const getSchema = (locale: localeType) => {
-  if (locale === "ru") {
-    return object({
-      email: string()
-        .email("Введите корректный email")
-        .required("Email обязателен"),
-    }).required();
-  }
-  return object({
+const schemes = {
+  ru: object({
+    email: string()
+      .email("Введите корректный email")
+      .required("Email обязателен"),
+  }).required(),
+  en: object({
     email: string().email("Uncorrect email").required("Email is required"),
-  }).required();
+  }).required(),
+};
+
+export const getSchema = (locale: localeType) => {
+  return schemes[locale];
 };

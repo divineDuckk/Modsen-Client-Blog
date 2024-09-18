@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { FC, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -22,6 +23,8 @@ export const Categories: FC<CategoriesProps> = ({ serverPosts }) => {
   const [posts, setPosts] = useState(serverPosts);
   const [tag, setTag] = useState("");
   const tagsWithOutEmptyString = TAGS.filter((tag) => tag !== "");
+
+  const t = useTranslations("CategorySection");
 
   const handleSearchClick = () => {
     if (tag === "") {
@@ -50,7 +53,7 @@ export const Categories: FC<CategoriesProps> = ({ serverPosts }) => {
           />
         ) : (
           <div className="w-full flex justify-center items-center">
-            <h2 className={heading2}>No posts available</h2>
+            <h2 className={heading2}>{t("noPosts")}</h2>
           </div>
         )}
         <aside className="max-w-xs">
@@ -62,7 +65,7 @@ export const Categories: FC<CategoriesProps> = ({ serverPosts }) => {
           />
           <MiniCategoriesContainer />
           <div>
-            <h2 className={twMerge(`mb-6`, heading2)}>All Tags</h2>
+            <h2 className={twMerge(`mb-6`, heading2)}>{t("tags")}</h2>
             <div className="flex flex-wrap gap-4">
               {tagsWithOutEmptyString.map((tagName) => {
                 return (

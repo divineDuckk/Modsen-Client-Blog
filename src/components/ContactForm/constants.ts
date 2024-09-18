@@ -8,26 +8,24 @@ export const EN_QUERY_RALATED = [
   "Internalization issues",
 ];
 
-export const getSchema = (locale: localeType) => {
-  if (locale === "ru") {
-    return object().shape({
-      email: string()
-        .email("Не правильный формат почты")
-        .required("Почта обязательна"),
-      name: string()
-        .required("Имя обязательно")
-        .min(3, "Минимум 3 символа")
-        .max(50, "Максимум 50 символов"),
-      selectedValue: string()
-        .required("Выберите запрос")
-        .not(["Недавние запросы"], "Выберите запрос"),
-      message: string()
-        .required("Сообщение обязательно")
-        .min(5, "Минимум 5 символов")
-        .max(100, "Максимум 100 символов"),
-    });
-  }
-  return object().shape({
+const schemes = {
+  ru: object().shape({
+    email: string()
+      .email("Не правильный формат почты")
+      .required("Почта обязательна"),
+    name: string()
+      .required("Имя обязательно")
+      .min(3, "Минимум 3 символа")
+      .max(50, "Максимум 50 символов"),
+    selectedValue: string()
+      .required("Выберите запрос")
+      .not(["Недавние запросы"], "Выберите запрос"),
+    message: string()
+      .required("Сообщение обязательно")
+      .min(5, "Минимум 5 символов")
+      .max(100, "Максимум 100 символов"),
+  }),
+  en: object().shape({
     email: string().email("Invalid email format").required("Email is required"),
     name: string()
       .required("Full Name is required")
@@ -40,7 +38,11 @@ export const getSchema = (locale: localeType) => {
       .required("Message is required")
       .min(5, "Minimum 5 symblos")
       .max(100, "Maximum 100 symbols"),
-  });
+  }),
+};
+
+export const getSchema = (locale: localeType) => {
+  return schemes[locale];
 };
 
 export const RU_QUERY_RALATED = [

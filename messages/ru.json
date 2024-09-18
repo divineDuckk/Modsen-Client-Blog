@@ -19,7 +19,7 @@
     "viewsOnFinsweet": "Просмотров на Finsweet",
     "totalUsers": "Активных пользователей"
   },
-  "AuthorHero": {
+  "Author": {
     "hello": "Привет! Меня зовут {name} и добро пожаловать в мой блог"
   },
   "AuthorPosts": {
@@ -43,7 +43,7 @@
   },
   "CategoryHead": {
     "title": "Все категории",
-    "subtitle": "блог > категории"
+    "subtitle": "блог > {title}"
   },
   "CategorySection": {
     "noPosts": "Отфильтрованных постов не найдено...",
@@ -51,6 +51,15 @@
     "categories": "Категории",
     "tags": "Тэги",
     "search": "Поиск"
+  },
+  "Tags": {
+    "Business": "Бизнес",
+    "Experience": "Опыт",
+    "Screen": "Экран",
+    "Technology": "Технология",
+    "Marketing": "Марекетинг",
+    "Life": "Жизнь",
+    "All": "Всё"
   },
   "AllPosts": {
     "allPosts": "Все посты",

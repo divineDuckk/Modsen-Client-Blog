@@ -1,7 +1,17 @@
 import { object, string } from "yup";
 
 import { TAGS } from "@/constants";
+import { localeType } from "@/types";
 
-export const validationSchema = object({
-  tag: string().oneOf(TAGS, "Invalid tag"),
-});
+const schemes = {
+  ru: object({
+    tag: string().oneOf(TAGS, "Неправильный тег"),
+  }),
+  en: object({
+    tag: string().oneOf(TAGS, "Invalid tag"),
+  }),
+};
+
+export const getSchema = (locale: localeType) => {
+  return schemes[locale];
+};
