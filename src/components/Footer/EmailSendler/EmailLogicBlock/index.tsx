@@ -7,6 +7,7 @@ import { twMerge } from "tailwind-merge";
 import { ValidationError } from "yup";
 
 import { sen } from "@/app/fonts";
+import { getBuildEnvVar } from "@/constants";
 import { localeType } from "@/types";
 import { returnEmailStatusMsg } from "@/utils/functions/returnEmailStatusMsg";
 
@@ -60,10 +61,10 @@ export const EmailLogicBlock = () => {
     setSuccess(false);
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        getBuildEnvVar("EMAILJS_SERVICE_ID"),
+        getBuildEnvVar("EMAILJS_TEMPLATE_ID"),
         { email },
-        process.env.NEXT_PUBLIC_EMAILJS_KEY,
+        getBuildEnvVar("EMAILJS_KEY"),
       )
       .then(
         () => {

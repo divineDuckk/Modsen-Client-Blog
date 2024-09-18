@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 
 import { fetchPosts } from "@/api/fetchPosts";
@@ -15,6 +14,7 @@ import { MiniPost } from "@/components/MiniPost";
 import { Observer } from "@/components/Observer";
 import { Testimonials } from "@/components/Testimonials";
 import { getRoute, LINKS_LIST, MAX_HOME_POSTS } from "@/constants";
+import { Link } from "@/i18n/routing";
 import { Post } from "@/interfaces/post";
 import { findFirstStartupPost } from "@/utils/functions/findFirstStartupPost";
 import { getMonthAndYear } from "@/utils/functions/getMonthAndYear";

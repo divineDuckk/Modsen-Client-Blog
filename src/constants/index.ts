@@ -43,6 +43,17 @@ export const getRoute = (page: keyof typeof ROUTES) => {
 export const getCategoryImg = (category: string) => {
   return CATEGORY.find(({ title }) => title === category)?.icon;
 };
+const buildEnvVars = {
+  EMAILJS_SECOND_TEMPLATE_ID:
+    process.env.NEXT_PUBLIC_EMAILJS_SECOND_TEMPLATE_ID,
+  EMAILJS_SERVICE_ID: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+  EMAILJS_KEY: process.env.NEXT_PUBLIC_EMAILJS_KEY,
+  EMAILJS_TEMPLATE_ID: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+};
+
+export const getBuildEnvVar = (envName: keyof typeof buildEnvVars): string => {
+  return buildEnvVars[envName] as string;
+};
 
 export const HEADER_LINKS = [
   { title: "Home", link: getRoute("home") },

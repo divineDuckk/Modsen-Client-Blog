@@ -7,6 +7,7 @@ import { twMerge } from "tailwind-merge";
 import { ValidationError } from "yup";
 
 import { heading4 } from "@/app/classes";
+import { getBuildEnvVar } from "@/constants";
 import { localeType } from "@/types";
 import { returnEmailStatusMsg } from "@/utils/functions/returnEmailStatusMsg";
 
@@ -73,15 +74,15 @@ export const ContactForm = () => {
     setSuccess(false);
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_SECOND_TEMPLATE_ID,
+        getBuildEnvVar("EMAILJS_SERVICE_ID"),
+        getBuildEnvVar("EMAILJS_SECOND_TEMPLATE_ID"),
         {
           name,
           email,
           query: selectedValue,
           message,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_KEY,
+        getBuildEnvVar("EMAILJS_KEY"),
       )
       .then(
         () => {
@@ -107,7 +108,7 @@ export const ContactForm = () => {
         onChange={handleNameChange}
         className={twMerge(
           `p-6 text-charcoalBlue border border-solid border-gray-300`,
-          `${errors.name && "border-red-500"}`,
+          errors.name && "border-red-500",
         )}
         placeholder={t("fullName")}
         disabled={success}
@@ -115,7 +116,7 @@ export const ContactForm = () => {
       <p
         className={twMerge(
           "text-red-500 text-sm min-h-5",
-          `${errors.name ? "visible" : "hidden-visibility"}`,
+          errors.name ? "visible" : "hidden-visibility",
         )}
       >
         {errors.name}
@@ -127,7 +128,7 @@ export const ContactForm = () => {
         onChange={handleEmailChange}
         className={twMerge(
           `p-6 text-charcoalBlue border border-solid border-gray-300 mt-4`,
-          `${errors.name && "border-red-500"}`,
+          errors.name && "border-red-500",
         )}
         placeholder={t("email")}
         disabled={success}
@@ -135,7 +136,7 @@ export const ContactForm = () => {
       <p
         className={twMerge(
           "text-red-500 text-sm min-h-5",
-          `${errors.email ? "visible" : "hidden-visibility"}`,
+          errors.email ? "visible" : "hidden-visibility",
         )}
       >
         {errors.email}
@@ -146,7 +147,7 @@ export const ContactForm = () => {
         onChange={handleSelect}
         className={twMerge(
           `p-6 text-charcoalBlue border border-solid border-gray-300 cursor-pointer mt-4`,
-          `${errors.selectedValue && "border-red-500"}`,
+          errors.selectedValue && "border-red-500",
         )}
         disabled={success}
       >
@@ -162,7 +163,7 @@ export const ContactForm = () => {
       <p
         className={twMerge(
           "text-red-500 text-sm min-h-5",
-          `${errors.selectedValue ? "visible" : "hidden-visibility"}`,
+          errors.selectedValue ? "visible" : "hidden-visibility",
         )}
       >
         {errors.selectedValue}
@@ -173,7 +174,7 @@ export const ContactForm = () => {
         onChange={handleMessageChange}
         className={twMerge(
           `p-6 text-charcoalBlue border border-solid border-gray-300 min-h-36 appearance-none resize-none mt-4`,
-          `${errors.message && "border-red-500"}`,
+          errors.message && "border-red-500",
         )}
         placeholder="Message"
         disabled={success}
@@ -181,7 +182,7 @@ export const ContactForm = () => {
       <p
         className={twMerge(
           "text-red-500 text-sm min-h-5",
-          `${errors.message ? "visible" : "hidden-visibility"}`,
+          errors.message ? "visible" : "hidden-visibility",
         )}
       >
         {errors.message}
