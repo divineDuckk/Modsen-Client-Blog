@@ -8,6 +8,7 @@ import { getRoute } from "@/constants";
 import { Author } from "@/interfaces/author";
 
 import { createLinks } from "./constants";
+import { LinksContainer } from "./LinksContainer";
 
 export interface AuthorCardProps extends Author {}
 
@@ -38,13 +39,7 @@ export const AuthorCard: FC<AuthorCardProps> = ({
       </Link>
       <h2 className={twMerge(`mb-2`, heading3)}>{name}</h2>
       <p className="mb-5 opacity-65">{about}</p>
-      <div className="flex gap-4">
-        {links.map(({ img, link }) => (
-          <a key={link} href={link} target="_blank" className="cursor-pointer ">
-            <Image src={img} alt="link" />
-          </a>
-        ))}
-      </div>
+      <LinksContainer links={links} />
     </article>
   );
 };
