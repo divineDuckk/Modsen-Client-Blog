@@ -30,13 +30,13 @@ export const SearchInput: FC<SearchInputProps> = ({
   const [isHintShow, setIsHintShow] = useState(false);
   const [tags, setTags] = useState<string[]>([]);
   const locale = useLocale() as localeType;
-  const t = useTranslations("CategorySection");
+  const t = useTranslations<"CategorySection" | "Tags">();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
     setValue(newValue);
     let filtredTags = TAGS.filter((tag) =>
-      tag.toLowerCase().includes(newValue.toLowerCase()),
+      t(`Tags.${tag}`).toLowerCase().includes(newValue.toLowerCase()),
     );
     if (newValue === "") {
       filtredTags = [];
@@ -78,7 +78,7 @@ export const SearchInput: FC<SearchInputProps> = ({
             `text-sm font-bold tracking-tighter px-4 box-border flex-1 py-3 rounded-md outline-none`,
             sen.className,
           )}
-          placeholder={t("inputPlaceholder")}
+          placeholder={t("CategorySection.inputPlaceholder")}
           type="text"
           value={value}
           onChange={handleChange}
@@ -90,7 +90,7 @@ export const SearchInput: FC<SearchInputProps> = ({
           )}
           onClick={checkValidation}
         >
-          {t("search")}
+          {t("CategorySection.search")}
         </button>
       </div>
       {isHintShow && <Hint handleClick={handleHintClick} tags={tags} />}
