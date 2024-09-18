@@ -1,8 +1,10 @@
+import { getTranslations } from "next-intl/server";
 import { FC } from "react";
 
 import { heading4 } from "@/app/classes";
 import { getRoute } from "@/constants";
 import { Link } from "@/i18n/routing";
+import { getMonthAndYear } from "@/utils/functions/getMonthAndYear";
 
 interface MiniPostProps {
   authorName: string;
@@ -11,17 +13,21 @@ interface MiniPostProps {
   id: string;
 }
 
-export const MiniPost: FC<MiniPostProps> = ({
+export const MiniPost: FC<MiniPostProps> = async ({
   authorName,
   date,
   title,
   id,
 }) => {
+  const t = await getTranslations("Date");
+  const { remains, month } = getMonthAndYear(date);
+
   return (
     <article className="p-8 cursor-pointer hover:bg-сosmicLatte transition-all">
       <Link href={`${getRoute("blogPost")}${id}`}>
         <p className="mb-2">
-          By <span className="text-blue-500">{authorName}</span> | {date}
+          {t("By")} <span className="text-blue-600">{authorName}</span> |{" "}
+          {t(`${month}`)} {remains}
         </p>
         <h2 className={heading4}>{title}</h2>
       </Link>

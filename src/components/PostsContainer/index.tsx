@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
+import { useTranslations } from "next-intl";
 import { FC, useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -76,17 +77,19 @@ export const PostsContainer: FC<PostsContainerProps> = ({
     heading1,
   );
 
+  const t = useTranslations<"AuthorPosts" | "BlogCards" | "Categories">();
+
   return (
     <div className="w-full" ref={ref}>
       {!atCategoryPage && (
         <h1 className={headerClass}>
-          {atAuthorPage ? "My posts" : "All posts"}
+          {atAuthorPage ? t("AuthorPosts.posts") : t("BlogCards.allPosts")}
         </h1>
       )}
       <section className="flex flex-col gap-16 mb-16">
         {posts.map(({ category, content, id, imgUrl, title }) => (
           <BlogPost
-            category={category}
+            category={t(`Categories.${category}`)}
             content={content}
             id={id}
             imgUrl={imgUrl}
@@ -103,14 +106,14 @@ export const PostsContainer: FC<PostsContainerProps> = ({
             className={prevClass}
             disabled={isTherePrevPage}
           >
-            {"< Prev"}
+            {t("BlogCards.prev")}
           </button>
           <button
             onClick={handleNextClick}
             className={nextClass}
             disabled={isThereNextPage}
           >
-            {"Next >"}
+            {t("BlogCards.next")}
           </button>
         </div>
       )}

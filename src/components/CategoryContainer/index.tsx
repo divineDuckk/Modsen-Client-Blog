@@ -18,7 +18,7 @@ export const CategoryContainer: FC<CategoryContainerProps> = async ({
 }) => {
   const categoryClass = twMerge(
     `${sen.className}`,
-    `${atHome ? "text-center" : "text-left"}`,
+    `${atHome ? "text-center" : "text-left mt-16"}`,
     "font-bold text-3xl mb-12",
   );
 

@@ -2,17 +2,17 @@
 
 import { useTranslations, useLocale } from "next-intl";
 
-import { usePathname } from "@/i18n/routing";
+import { usePathname, useRouter } from "@/i18n/routing";
 
 export const LanguageSwitcher = () => {
   const pathname = usePathname();
   const locale = useLocale();
+  const router = useRouter();
   const t = useTranslations("Language");
 
   const switchLanguage = () => {
     const newLocale = locale === "en" ? "ru" : "en";
-    const newPathname = `/${newLocale}${pathname.substring(locale?.length + 1)}`;
-    window.location.href = newPathname;
+    router.push(pathname, { locale: newLocale });
   };
 
   return (

@@ -44,8 +44,8 @@
     "postedOn": "posted on {label}",
     "readMore": "Read More >"
   },
-  "CategoryHero": {
-    "title": "Categories",
+  "CategoryHead": {
+    "title": "All Categories",
     "subtitle": "blog > categories"
   },
   "CategorySection": {

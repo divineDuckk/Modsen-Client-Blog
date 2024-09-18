@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import { FC } from "react";
 
 import { fetchPostById } from "@/api/fetchPostById";
@@ -28,6 +29,8 @@ const Post: FC<PostPageProps> = async ({ params }) => {
 
   const recommendedPosts = getRecommendedPosts(posts, slug, category);
 
+  const t = await getTranslations(["BlogHeader", "Categories"]);
+
   const { name, photo, id } = author;
   return (
     <div className="min-w-full mt-32 h-full">
@@ -43,7 +46,7 @@ const Post: FC<PostPageProps> = async ({ params }) => {
                 <h3 className={heading4}>{name}</h3>
               </Link>
               <p className="font-normal text-base opacity-65">
-                posted on {date}
+                {t("BlogHeader.postedOn", { date })}
               </p>
             </div>
           </div>
@@ -53,7 +56,7 @@ const Post: FC<PostPageProps> = async ({ params }) => {
               src={getCategoryImg(category) as photoType}
               alt="category image"
             />
-            <p className={`${heading4}`}>{category}</p>
+            <p className={heading4}>{t(`Categories.${category}`)}</p>
           </div>
         </div>
       </div>

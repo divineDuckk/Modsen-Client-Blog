@@ -38,11 +38,11 @@
     "next": "Вперед >"
   },
   "BlogHeader": {
-    "postedOn": "Опубликовано в {label}",
+    "postedOn": "Опубликовано в {date}",
     "readMore": "Читать далее >"
   },
-  "CategoryHero": {
-    "title": "Категории",
+  "CategoryHead": {
+    "title": "Все категории",
     "subtitle": "блог > категории"
   },
   "CategorySection": {
