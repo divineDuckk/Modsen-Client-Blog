@@ -1,6 +1,7 @@
 "use client";
 
 import { FC, useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 import { OFFSET } from "./constants";
 
@@ -35,14 +36,20 @@ export const Carousel: FC<CarouselProps> = ({ children }) => {
           <button
             disabled={isStartPage}
             onClick={handleForwardClick}
-            className={`text-2xl bg-white rounded-full w-12 h-12 ${!isStartPage ? "hover:scale-125 hover:bg-black hover:text-white " : "opacity-65 cursor-not-allowed"} transition-all`}
+            className={twMerge(
+              `text-2xl bg-white rounded-full w-12 h-12 transition-all`,
+              `${!isStartPage ? "hover:scale-125 hover:bg-black hover:text-white " : "opacity-65 cursor-not-allowed"}`,
+            )}
           >
             {"<-"}
           </button>
           <button
             disabled={isEndPage}
             onClick={handleBackClick}
-            className={`text-2xl bg-white rounded-full w-12 h-12 ${!isEndPage ? "hover:scale-125 hover:bg-black hover:text-white " : "opacity-65 cursor-not-allowed"} transition-all`}
+            className={twMerge(
+              `text-2xl bg-white rounded-full w-12 h-12 transition-all`,
+              `${!isEndPage ? "hover:scale-125 hover:bg-black hover:text-white " : "opacity-65 cursor-not-allowed"}`,
+            )}
           >
             {"->"}
           </button>

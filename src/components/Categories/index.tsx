@@ -1,6 +1,7 @@
 "use client";
 
 import { FC, useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 import { heading2 } from "@/app/classes";
 import { PostsContainer } from "@/components/PostsContainer";
@@ -61,7 +62,7 @@ export const Categories: FC<CategoriesProps> = ({ serverPosts }) => {
           />
           <MiniCategoriesContainer />
           <div>
-            <h2 className={`${heading2} mb-6`}>All Tags</h2>
+            <h2 className={twMerge(`mb-6`, heading2)}>All Tags</h2>
             <div className="flex flex-wrap gap-4">
               {tagsWithOutEmptyString.map((tagName) => {
                 return (

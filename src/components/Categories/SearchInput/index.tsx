@@ -1,6 +1,7 @@
 "use client";
 
 import { ChangeEvent, Dispatch, FC, SetStateAction, useState } from "react";
+import { twMerge } from "tailwind-merge";
 import { ValidationError } from "yup";
 
 import { heading6 } from "@/app/classes";
@@ -69,14 +70,20 @@ export const SearchInput: FC<SearchInputProps> = ({
     <div className="flex flex-col mb-14 relative">
       <div className="flex border border-solid border-gray-400 rounded-md">
         <input
-          className={`${sen.className} text-sm font-bold tracking-tighter px-4 box-border flex-1 py-3 rounded-md outline-none`}
+          className={twMerge(
+            `text-sm font-bold tracking-tighter px-4 box-border flex-1 py-3 rounded-md outline-none`,
+            sen.className,
+          )}
           placeholder="Search for tag..."
           type="text"
           value={value}
           onChange={handleChange}
         />
         <button
-          className={`${heading6} flex justify-center items-center bg-goldenYellow rounded-md px-4`}
+          className={twMerge(
+            `flex justify-center items-center bg-goldenYellow rounded-md px-4`,
+            heading6,
+          )}
           onClick={checkValidation}
         >
           Search

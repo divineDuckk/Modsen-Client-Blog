@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
+import { twMerge } from "tailwind-merge";
 
 import { heading3 } from "@/app/classes";
 import { getRoute } from "@/constants";
@@ -36,7 +37,7 @@ export const AuthorCard: FC<AuthorCardProps> = ({
           alt={`${name} photo`}
         />
       </Link>
-      <h2 className={`${heading3} mb-2`}>{name}</h2>
+      <h2 className={twMerge(`mb-2`, heading3)}>{name}</h2>
       <p className="mb-5 opacity-65">{about}</p>
       <LinksContainer links={links} />
     </article>
