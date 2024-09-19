@@ -1,23 +1,26 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 import { FOOTER_LINKS } from "@/constants";
+import { Link } from "@/i18n/routing";
 
 import { LINKS } from "./constants";
 import { EmailSendler } from "./EmailSendler";
 
-export const Footer = () => {
+export const Footer = async () => {
+  const t = await getTranslations("Navigation");
+
   return (
     <div className="w-full mx-auto bg-сharcoalBlue flex justify-center">
       <footer className="w-full max-w-1440 flex flex-col px-9 bg-сharcoalBlue mt-14">
         <div className="w-full flex justify-between mb-12 items-center ">
-          <h2 className="font-bold text-2xl text-white">Modsen Client Blog</h2>
+          <h2 className="font-bold text-2xl text-white">{t("title")}</h2>
           <ul className="flex gap-6 items-center text-white">
             {FOOTER_LINKS.map(({ link, title }) => (
               <li
                 className="text-base font-normal cursor-pointer hover:text-shadow-white transition-all"
                 key={title}
               >
-                <Link href={link}>{title}</Link>
+                <Link href={link}>{t(title.toLowerCase())}</Link>
               </li>
             ))}
           </ul>

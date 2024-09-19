@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
 import { ChangeEvent, Dispatch, FC, SetStateAction, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { ValidationError } from "yup";
@@ -8,8 +9,9 @@ import { heading6 } from "@/app/classes";
 import { sen } from "@/app/fonts";
 import { Hint } from "@/components/Hint";
 import { TAGS } from "@/constants";
+import { localeType } from "@/types";
 
-import { validationSchema } from "./constants";
+import { getSchema } from "./constants";
 
 interface SearchInputProps {
   value: string;
@@ -27,12 +29,14 @@ export const SearchInput: FC<SearchInputProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [isHintShow, setIsHintShow] = useState(false);
   const [tags, setTags] = useState<string[]>([]);
+  const locale = useLocale() as localeType;
+  const t = useTranslations<"CategorySection" | "Tags">();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
     setValue(newValue);
     let filtredTags = TAGS.filter((tag) =>
-      tag.toLowerCase().includes(newValue.toLowerCase()),
+      t(`Tags.${tag}`).toLowerCase().includes(newValue.toLowerCase()),
     );
     if (newValue === "") {
       filtredTags = [];
@@ -55,7 +59,7 @@ export const SearchInput: FC<SearchInputProps> = ({
 
   const checkValidation = async () => {
     try {
-      await validationSchema.validate({ tag: value });
+      await getSchema(locale).validate({ tag: value });
       setError(null);
       handleSearchClick();
     } catch (err) {
@@ -74,7 +78,7 @@ export const SearchInput: FC<SearchInputProps> = ({
             `text-sm font-bold tracking-tighter px-4 box-border flex-1 py-3 rounded-md outline-none`,
             sen.className,
           )}
-          placeholder="Search for tag..."
+          placeholder={t("CategorySection.inputPlaceholder")}
           type="text"
           value={value}
           onChange={handleChange}
@@ -86,7 +90,7 @@ export const SearchInput: FC<SearchInputProps> = ({
           )}
           onClick={checkValidation}
         >
-          Search
+          {t("CategorySection.search")}
         </button>
       </div>
       {isHintShow && <Hint handleClick={handleHintClick} tags={tags} />}

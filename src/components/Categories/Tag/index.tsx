@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -15,9 +16,11 @@ export const Tag: FC<TagProps> = ({ name, handleClick, isActive }) => {
     isActive && "bg-goldenYellow",
     sen.className,
   );
+  const t = useTranslations("Tags");
+
   return (
     <button onClick={handleClick} className={tagClass}>
-      {name}
+      {t(name)}
     </button>
   );
 };

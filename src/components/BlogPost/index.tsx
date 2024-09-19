@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FC } from "react";
 import { twMerge } from "tailwind-merge";
 
 import { heading2 } from "@/app/classes";
 import { getRoute } from "@/constants";
+import { Link } from "@/i18n/routing";
 import { Post } from "@/interfaces/post";
 
 interface BlogPostProps extends Omit<Post, "author" | "date" | "tags"> {
@@ -20,8 +20,8 @@ export const BlogPost: FC<BlogPostProps> = ({
   atCategoryPage = false,
 }) => {
   const imgClass = twMerge(
-    `object-cover  h-80 w-full`,
-    `${atCategoryPage ? "max-w-80 h-full" : "max-w-md"}`,
+    `object-cover w-full`,
+    `${atCategoryPage ? "max-w-80 h-80" : "max-w-md h-full max-h-80"}`,
   );
   const contentClass = twMerge(
     `${atCategoryPage ? "max-w-lg h-80  flex flex-col justify-center" : "max-w-2xl"} h-full`,

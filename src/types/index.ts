@@ -9,3 +9,5 @@ export type tag =
   | "Marketing"
   | "Life"
   | "";
+
+export type localeType = "ru" | "en";

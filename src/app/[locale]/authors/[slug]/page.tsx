@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import { FC } from "react";
 
 import { fetchAuthorById } from "@/api/fetchAuthorById";
@@ -33,6 +34,7 @@ const Author: FC<AuthorPageProps> = async ({ params }) => {
   });
 
   const serverPosts = await fetchPostsByAuthor(slug);
+  const t = await getTranslations(["Author", "AuthorPosts"]);
 
   return (
     <main className="w-full justify-center flex flex-col items-center">
@@ -48,7 +50,7 @@ const Author: FC<AuthorPageProps> = async ({ params }) => {
             </div>
             <div>
               <h1 className={`${heading1} mb-6`}>
-                Hey there, I’m {name} and welcome to my Blog
+                {t("Author.hello", { name })}
               </h1>
               <p className="font-normal text-base mb-6">{about}</p>
               <LinksContainer links={links} />
@@ -65,7 +67,7 @@ const Author: FC<AuthorPageProps> = async ({ params }) => {
           <PostsContainer serverPosts={serverPosts} atAuthorPage />
         ) : (
           <div className="flex justify-center items-center">
-            <h2 className={heading2}>The author has no posts yet</h2>
+            <h2 className={heading2}>{t("AuthorPosts.noPosts")}</h2>
           </div>
         )}
       </div>

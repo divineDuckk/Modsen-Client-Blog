@@ -1,20 +1,21 @@
+import { getTranslations } from "next-intl/server";
 import { twMerge } from "tailwind-merge";
 
 import { heading1, heading5 } from "@/app/classes";
 import { ContactForm } from "@/components/ContactForm";
 import { MapContainer } from "@/components/MapContainer";
 
-export default function Contact() {
+export default async function Contact() {
+  const t = await getTranslations(["Contact", "WorkingHours"]);
+
   return (
     <main className="w-full flex flex-col items-center">
       <div className="w-full max-w-3xl mt-32">
         <div className="text-center  mb-16">
           <h3 className="font-black text-base tracking-widest mb-4 uppercase">
-            Contact us
+            {t("Contact.subtitle")}
           </h3>
-          <h1 className={twMerge(`b-6`, heading1)}>
-            Let’s Start a Conversation
-          </h1>
+          <h1 className={twMerge(`mb-6`, heading1)}>{t("Contact.title")}</h1>
           <p className="text-base font-normal opacity-65">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -24,18 +25,18 @@ export default function Contact() {
         <div className="w-full bg-purple-800 flex text-white justify-evenly mb-8">
           <div className="w-full max-w-72 my-12 ">
             <p className="text-sm font-normal opacity-65 w-full border-b border-solid border-gray-300 pb-4 mb-5 tracking-wide">
-              Working hours
+              {t("WorkingHours.workHours")}
             </p>
             <h2 className={twMerge(`mb-4 max-w-52`, heading5)}>
-              Monday To Friday 9:00 AM to 8:00 PM
+              {t("WorkingHours.weekDays")} <br /> {t("WorkingHours.time")}
             </h2>
             <p className="text-base font-normal opacity-65 ">
-              Our Support Team is available 24/7
+              {t("WorkingHours.support")}
             </p>
           </div>
           <div className="w-full max-w-72 my-12">
             <p className="text-sm font-normal opacity-65 w-full border-b border-solid border-gray-300 pb-4 mb-5 tracking-wide">
-              Contact Us
+              {t("WorkingHours.contactUs")}
             </p>
             <h2 className={twMerge(`mb-4 max-w-52`, heading5)}>
               020 7993 2905

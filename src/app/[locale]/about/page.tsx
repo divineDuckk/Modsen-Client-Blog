@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getLocale, getTranslations } from "next-intl/server";
 import { twMerge } from "tailwind-merge";
 
 import { sen } from "@/app/fonts";
@@ -8,18 +9,23 @@ import threePersons from "@/assets/three-persons-sitting-on-the-stairs-talking-w
 import { AboutUsContainer } from "@/components/AboutUsContainer";
 import { AuthorsContainer } from "@/components/AuthorsContainer";
 import { JoinContainer } from "@/components/JoinContainer";
-import { ABOUT_US_INFO } from "@/constants";
+import { EN_ABOUT_US_INFO, RU_ABOUT_US_INFO } from "@/constants";
 
-export default function About() {
+export default async function About() {
+  const t = await getTranslations("AboutUs");
+  const locale = await getLocale();
+
+  const aboutUsInfo = locale === "ru" ? RU_ABOUT_US_INFO : EN_ABOUT_US_INFO;
+
   return (
     <main className="mt-20 max-w-7xl w-full">
       <div className="flex justify-center gap-24 items-center translate-y-12">
         <div className="bg-white p-16">
-          <h2 className="font-medium text-base tracking-widest mb-4">
-            ABOUT US
+          <h2 className="font-medium text-base tracking-widest mb-4 uppercase">
+            {t("aboutUsTitle")}
           </h2>
           <h1 className={`${sen.className} font-bold text-5xl max-w-lg`}>
-            We are a team of content writers who share their learnings
+            {t("aboutUsHeader")}
           </h1>
         </div>
         <p className="bg-transparent font-normal text-base opacity-65 max-w-md">
@@ -33,7 +39,7 @@ export default function About() {
         <Image src={aboutImage} alt="about us image" />
         <div className="absolute max-w-4xl w-full bottom-0 left-32">
           <div className="flex justify-between bg-goldenYellow py-8 px-12 w-full max-w-2xl">
-            {ABOUT_US_INFO.map(({ info, value }) => (
+            {aboutUsInfo.map(({ info, value }) => (
               <div key={info} className="bg-goldenYellow">
                 <h2
                   className={`${sen.className} font-bold text-6xl text-сharcoalBlue tracking-tight`}
@@ -56,7 +62,7 @@ export default function About() {
       <div className="flex relative text-сharcoalBlue justify-between items-center mb-32">
         <div className="max-w-lg w-full">
           <h2 className={twMerge(`font-bold text-4xl mb-4`, sen.className)}>
-            Our team of creatives
+            {t("ourTeam")}
           </h2>
           <h3 className={twMerge(`font-bold text-2xl mb-4`, sen.className)}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -82,7 +88,7 @@ export default function About() {
         </div>
         <div className="max-w-lg w-full">
           <h2 className={twMerge(`font-bold text-4xl mb-4`, sen.className)}>
-            Why we started this Blog
+            {t("whyStarted")}
           </h2>
           <h3 className={twMerge(`font-bold text-2xl mb-4`, sen.className)}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

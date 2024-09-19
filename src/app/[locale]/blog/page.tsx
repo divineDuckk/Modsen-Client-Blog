@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import { twMerge } from "tailwind-merge";
 
 import { fetchPosts } from "@/api/fetchPosts";
@@ -8,10 +9,15 @@ import { CategoryContainer } from "@/components/CategoryContainer";
 import { JoinContainer } from "@/components/JoinContainer";
 import { PostsContainer } from "@/components/PostsContainer";
 import { getRoute } from "@/constants";
+import { getMonthAndYear } from "@/utils/functions/getMonthAndYear";
 
 export default async function Blog() {
   const posts = await fetchPosts();
   const { author, content, date, imgUrl, title, id } = posts[0];
+
+  const t = await getTranslations(["FeaturedPost", "Date", "CategoryHead"]);
+  const { remains, month } = getMonthAndYear(date);
+
   return (
     <div className="w-full">
       <main className="flex flex-col items-center">
@@ -19,19 +25,19 @@ export default async function Blog() {
           <div className="flex w-full mb-20 max-w-1440 mx-auto justify-between px-9 pt-20 items-center">
             <section className="max-w-xl">
               <h3 className="font-medium text-base tracking-widest uppercase mb-5">
-                Featured Post
+                {t("FeaturedPost.featured")}
               </h3>
               <h2 className={twMerge(`mb-4`, heading2)}>{title}</h2>
               <p className="font-medium text-sm mb-4">
-                By{" "}
+                {t("Date.By")}{" "}
                 <span className="font-medium text-sm text-blue-600">
                   {author.name}
                 </span>{" "}
-                | {date}
+                | {t(`Date.${month}`)} {remains}
               </p>
               <p className="mb-8 font-normal text-base opacity-65">{content}</p>
               <ActionLink
-                content="Read more >"
+                content={t("FeaturedPost.readMore")}
                 link={`${getRoute("blogPost")}${id}`}
               />
             </section>
@@ -42,7 +48,7 @@ export default async function Blog() {
         </div>
         <div className="w-full max-w-1440 px-8">
           <PostsContainer serverPosts={posts} />
-          <CategoryContainer title="All Categories" />
+          <CategoryContainer title={t("CategoryHead.title")} />
           <JoinContainer />
         </div>
       </main>

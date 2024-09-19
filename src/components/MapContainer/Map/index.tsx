@@ -3,7 +3,7 @@
 import { FC } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
-import { CENTER, MARKERS, ZOOM } from "./constants";
+import { CENTER, customIcon, MARKERS, ZOOM } from "./constants";
 
 import "leaflet/dist/leaflet.css";
 
@@ -20,7 +20,7 @@ const Map: FC = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {MARKERS.map(({ position, text, id }) => (
-        <Marker position={position} key={id}>
+        <Marker position={position} key={id} icon={customIcon}>
           <Popup>{text}</Popup>
         </Marker>
       ))}

@@ -1,17 +1,22 @@
+import { getTranslations } from "next-intl/server";
+import { twMerge } from "tailwind-merge";
+
 import { heading2 } from "@/app/classes";
 import { Carousel } from "@/components/Carousel";
 import { REVIEWS } from "@/constants";
 
 import { Review } from "./Review";
 
-export const Testimonials = () => {
+export const Testimonials = async () => {
+  const t = await getTranslations("Testimonials");
+
   return (
     <div className="flex flex-col items-center bg-linen justify-center mb-32 xl:flex-row xl:items-start">
       <div className="pr-20 max-w-96  h-fit">
-        <h3 className="font-semibold mt-20 text-base tracking-widest text-сharlestonGreen mb-3">
-          TESTIMONIALS
+        <h3 className="font-semibold mt-20 text-base tracking-widest text-сharlestonGreen mb-3 uppercase">
+          {t("testimonials")}
         </h3>
-        <h2 className={`${heading2} mb-4`}>What people say about our blog</h2>
+        <h2 className={twMerge("mb-4", heading2)}>{t("title")}</h2>
         <p className="font-normal text-base text-сharlestonGreen">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor.

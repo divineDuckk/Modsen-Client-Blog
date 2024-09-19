@@ -1,0 +1,162 @@
+{
+  "Navigation": {
+    "title": "Блог клиентов Modsen",
+    "home": "Главная",
+    "blog": "Блог",
+    "about us": "Про нас",
+    "contact us": "Контакты",
+    "privacy policy": "Политика",
+    "videoAboutUs": "Видео о нас"
+  },
+  "KnowOurTeam": {
+    "ourTeam": "Наша творческая команда",
+    "whyStarted": "Почему мы завели этот блог"
+  },
+  "MissionVision": {
+    "aboutUs": "Про нас",
+    "sharingTeam": "Мы - команда авторов контента, которые делятся своими знаниями",
+    "blogsPublished": "Опубликованных блогов",
+    "viewsOnFinsweet": "Просмотров на Finsweet",
+    "totalUsers": "Активных пользователей"
+  },
+  "Author": {
+    "hello": "Привет! Меня зовут {name} и добро пожаловать в мой блог"
+  },
+  "AuthorPosts": {
+    "posts": "Мои посты",
+    "noPosts": "Посты не найдены"
+  },
+  "BlogPostHeader": {
+    "postedOn": "Опубликовано {date}"
+  },
+  "OtherPosts": {
+    "readNext": "Читайте далее"
+  },
+  "BlogCards": {
+    "allPosts": "Все посты",
+    "prev": "< Назад",
+    "next": "Вперед >"
+  },
+  "BlogHeader": {
+    "postedOn": "Опубликовано в {date}",
+    "readMore": "Читать далее >"
+  },
+  "CategoryHead": {
+    "title": "Все категории",
+    "subtitle": "блог > {title}"
+  },
+  "CategorySection": {
+    "noPosts": "Отфильтрованных постов не найдено...",
+    "inputPlaceholder": "Искать...",
+    "categories": "Категории",
+    "tags": "Тэги",
+    "search": "Поиск"
+  },
+  "Tags": {
+    "Business": "Бизнес",
+    "Experience": "Опыт",
+    "Screen": "Экран",
+    "Technology": "Технология",
+    "Marketing": "Марекетинг",
+    "Life": "Жизнь",
+    "All": "Всё"
+  },
+  "AllPosts": {
+    "allPosts": "Все посты",
+    "viewAll": "Посмотреть все"
+  },
+  "FeaturedPost": {
+    "featured": "Избранный пост",
+    "readMore": "Читать далее >"
+  },
+  "Home": {
+    "readMore": "Читать далее >",
+    "postedOn": "Опубликовано в"
+  },
+  "LogosList": {
+    "weAre": "Мы",
+    "featured": "Представлены в"
+  },
+  "Testimonials": {
+    "testimonials": "Рекомендации",
+    "title": "Что люди говорят о нас"
+  },
+  "WhyWeStarted": {
+    "subtitle": "Почему мы начали",
+    "title": "Все началось с простой идеи, а затем переросло в нашу страсть",
+    "discover": "Изучите нашу историю >"
+  },
+  "Contact": {
+    "subtitle": "Связаться с нами",
+    "title": "Давайте начнем разговор"
+  },
+  "WorkingHours": {
+    "workHours": "Рабочие часы",
+    "weekDays": "С Понедельника по Пятницу",
+    "time": "с 9:00 до 20:00",
+    "support": "Наша поддержка доступна 24/7",
+    "contactUs": "Связаться с нами"
+  },
+  "EmailForm": {
+    "fullName": "Полное имя",
+    "email": "Электронная почта",
+    "textArea": "Текст сообщения",
+    "button": "Отправить",
+    "queryRelated": "Недавние запросы",
+    "subscribe": "Подписаться"
+  },
+  "Privacy": {
+    "title": "Политика Конфиденциальности",
+    "description": "Последнее обновление от 27 января 2022 года"
+  },
+  "AboutUs": {
+    "aboutUsTitle": "Про нас",
+    "aboutUsHeader": "Мы - сообщество авторов контента, которые делятся своими знаниями",
+    "missionTitle": "наша миссия",
+    "missionText": "Создание ценного контента по всему миру",
+    "readMore": "Читать далее >",
+    "ourTeam": "Наша творческая команда",
+    "whyStarted": "Почему мы начали этот блог",
+    "ourVision": "Наше видение",
+    "ourVisionText": "Платформа, которая помогает людям улучшаться"
+  },
+  "AuthorsList": {
+    "title": "Список авторов"
+  },
+  "ChooseCategory": {
+    "title": "Выбрать категорию"
+  },
+  "Footer": {
+    "title": "Подпишитесь на нашу рассылку",
+    "email": "Электронная почта",
+    "button": "Подписаться"
+  },
+  "JoinOurTeam": {
+    "title": "Станьте частью нашей истории",
+    "link": "Присоединиться сейчас"
+  },
+  "Categories": {
+    "Startup": "Стартап",
+    "Business": "Бизнес",
+    "Economy": "Экономика",
+    "Technology": "Технология"
+  },
+  "Language": {
+    "lan": "РУ"
+  },
+  "Date": {
+    "By": "От",
+    "Jan": "Янв",
+    "Feb": "Фев",
+    "Mar": "Мар",
+    "Apr": "Апр",
+    "May": "Май",
+    "Jun": "Июн",
+    "Jul": "Июл",
+    "Aug": "Авг",
+    "Sep": "Сен",
+    "Oct": "Окт",
+    "Nov": "Ноя",
+    "Dec": "Дек"
+  }
+}

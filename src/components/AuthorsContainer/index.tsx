@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { FC } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -15,17 +16,17 @@ interface AuthorsContainerProps {
   atHome?: boolean;
 }
 
-export const AuthorsContainer: FC<AuthorsContainerProps> = ({
+export const AuthorsContainer: FC<AuthorsContainerProps> = async ({
   atHome = false,
 }) => {
+  const t = await getTranslations("AuthorsList");
+
   const list = atHome
     ? MOCKED_AUTHORS.slice(MIN_AUTHORS_SIZE, MAX_HOME_AUTHORS_SIZE)
     : MOCKED_AUTHORS.slice(MIN_AUTHORS_SIZE, MAX_AUTHORS_SIZE);
   return (
     <div className="mb-24">
-      <h2 className={twMerge(`text-center mb-12`, heading2)}>
-        List of Authors
-      </h2>
+      <h2 className={twMerge(`text-center mb-12`, heading2)}>{t("title")}</h2>
       <section className="grid grid-cols-4 gap-8">
         {list.map((author) => (
           <AuthorCard key={author.id} {...author} />

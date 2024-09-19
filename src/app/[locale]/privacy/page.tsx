@@ -1,15 +1,15 @@
+import { getTranslations } from "next-intl/server";
 import { twMerge } from "tailwind-merge";
 
 import { heading1, heading2 } from "@/app/classes";
 
-export default function Privacy() {
+export default async function Privacy() {
+  const t = await getTranslations("Privacy");
   return (
     <main className="w-full flex flex-col items-center mb-32">
       <div className="w-full bg-magnolia flex justify-center flex-col items-center mb-32">
-        <h1 className={twMerge(heading1, "mb-1 mt-20")}>Privacy Policy</h1>
-        <p className="font-normal text-base mb-20">
-          Last Updated on 27th January 2022
-        </p>
+        <h1 className={twMerge(heading1, "mb-1 mt-20")}>{t("title")}</h1>
+        <p className="font-normal text-base mb-20">{t("description")}</p>
       </div>
       <div className="w-full max-w-3xl">
         <h2 className={twMerge(heading1, "mb-8")}>
