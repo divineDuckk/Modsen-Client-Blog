@@ -17,7 +17,7 @@ export const LanguageSwitcher = () => {
 
   return (
     <button
-      className="text-base font-normal cursor-pointer hover:text-shadow-white transition-all"
+      className="text-base font-normal cursor-pointer hover:text-shadow-white transition-all w-full"
       onClick={switchLanguage}
     >
       {t("lan")}

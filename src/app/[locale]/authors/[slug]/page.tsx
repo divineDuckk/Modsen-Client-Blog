@@ -40,7 +40,7 @@ const Author: FC<AuthorPageProps> = async ({ params }) => {
     <main className="w-full justify-center flex flex-col items-center">
       <div className="w-full bg-magnolia flex items-center justify-center mb-32">
         <div>
-          <section className="flex items-center gap-8 max-w-5xl mt-32 mb-24">
+          <section className="flex flex-col md:flex-row items-center gap-8 max-w-5xl mt-32 mb-24">
             <div className="w-full h-full max-w-64 max-h-72 overflow-hidden">
               <Image
                 src={photo}
@@ -48,8 +48,8 @@ const Author: FC<AuthorPageProps> = async ({ params }) => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div>
-              <h1 className={`${heading1} mb-6`}>
+            <div className="flex flex-col items-center md:items-baseline">
+              <h1 className={`${heading1} mb-6 text-center md:text-left`}>
                 {t("Author.hello", { name })}
               </h1>
               <p className="font-normal text-base mb-6">{about}</p>

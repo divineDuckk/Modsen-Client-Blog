@@ -12,9 +12,9 @@ export const Footer = async () => {
   return (
     <div className="w-full mx-auto bg-сharcoalBlue flex justify-center">
       <footer className="w-full max-w-1440 flex flex-col px-9 bg-сharcoalBlue mt-14">
-        <div className="w-full flex justify-between mb-12 items-center ">
+        <div className="w-full flex justify-between mb-12 items-center flex-wrap">
           <h2 className="font-bold text-2xl text-white">{t("title")}</h2>
-          <ul className="flex gap-6 items-center text-white">
+          <ul className="flex gap-6 items-center text-white flex-wrap">
             {FOOTER_LINKS.map(({ link, title }) => (
               <li
                 className="text-base font-normal cursor-pointer hover:text-shadow-white transition-all"

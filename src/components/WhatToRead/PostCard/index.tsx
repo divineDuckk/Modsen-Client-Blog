@@ -27,11 +27,13 @@ export const PostCard: FC<PostCardProps> = async ({
   return (
     <article className="max-w-sm hover:bg-linen transition-all duration-300 flex flex-col">
       <Link href={`${getRoute("blogPost")}${id}`}>
-        <Image
-          src={imgUrl}
-          alt={`${name} post`}
-          className="mb-8 object-fill max-w-sm  hover:brightness-90 transition-all duration-300 h-300"
-        />
+        <div className="object-cover">
+          <Image
+            src={imgUrl}
+            alt={`${name} post`}
+            className="mb-8 object-fill w-full max-w-sm  hover:brightness-90 transition-all duration-300 h-auto sm:h-300"
+          />
+        </div>
       </Link>
       <p className="font-medium text-sm text-сharcoal mb-4">
         {t("By")}{" "}

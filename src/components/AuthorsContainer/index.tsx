@@ -27,7 +27,7 @@ export const AuthorsContainer: FC<AuthorsContainerProps> = async ({
   return (
     <div className="mb-24">
       <h2 className={twMerge(`text-center mb-12`, heading2)}>{t("title")}</h2>
-      <section className="grid grid-cols-4 gap-8">
+      <section className="grid-cols-1 sm:grid-cols-2 grid lg:grid-cols-4 gap-8 justify-items-center ">
         {list.map((author) => (
           <AuthorCard key={author.id} {...author} />
         ))}

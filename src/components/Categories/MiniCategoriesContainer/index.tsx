@@ -12,8 +12,10 @@ export const MiniCategoriesContainer: FC = () => {
 
   return (
     <div className="mb-12">
-      <h2 className={twMerge(`mb-10`, heading2)}>{t("categories")}</h2>
-      <section className="flex flex-col gap-6">
+      <h2 className={twMerge(`mb-10 text-center xl:text-left`, heading2)}>
+        {t("categories")}
+      </h2>
+      <section className="flex justify-center xl:justify-normal flex-row xl:flex-col gap-6 flex-wrap">
         {CATEGORY.map(({ title, icon }) => (
           <Category icon={icon} title={title} key={title} />
         ))}

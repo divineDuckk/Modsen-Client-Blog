@@ -1,14 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { notFound } from "next/navigation";
 import { getRequestConfig } from "next-intl/server";
 
-import { localeType } from "@/types";
-
 import { routing } from "./routing";
 
-export default getRequestConfig(async ({ locale }) => {
-  if (!routing.locales.includes(locale as localeType)) notFound();
+const requestConfig: ReturnType<typeof getRequestConfig> = getRequestConfig(
+  async ({ locale }) => {
+    if (!routing.locales.includes(locale as any)) notFound();
 
-  return {
-    messages: (await import(`../../messages/${locale}.json`)).default,
-  };
-});
+    return {
+      messages: (await import(`../../messages/${locale}.json`)).default,
+    };
+  },
+);
+
+export default requestConfig;

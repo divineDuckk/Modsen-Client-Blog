@@ -14,7 +14,7 @@ export const ActionLink: FC<ActionLinkProps> = ({ content, link }) => {
     <Link
       href={link}
       className={twMerge(
-        `px-12 py-4 bg-goldenYellow font-bold text-lg text-black -z-0`,
+        `px-12 py-4 bg-goldenYellow font-bold text-lg text-black -z-0 whitespace-nowrap`,
         sen.className,
       )}
     >
