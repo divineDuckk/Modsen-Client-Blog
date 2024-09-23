@@ -59,6 +59,7 @@ export const EmailLogicBlock = () => {
 
     setSending(true);
     setSuccess(false);
+
     emailjs
       .send(
         getBuildEnvVar("EMAILJS_SERVICE_ID"),

@@ -56,7 +56,10 @@ export const Header = () => {
             isBurgerOpen && "translate-x-full w-full max-w-56",
           )}
         >
-          <li className="hover:bg-cyan-600 hover:lg:bg-transparent lg:p-0 p-2 transition-all flex w-full justify-center cursor-pointer">
+          <li
+            data-testid="langSwitcher"
+            className="hover:bg-cyan-600 hover:lg:bg-transparent lg:p-0 p-2 transition-all flex w-full justify-center cursor-pointer"
+          >
             <LanguageSwitcher />
           </li>
           {HEADER_LINKS.map(({ link, title }) => (
@@ -68,7 +71,9 @@ export const Header = () => {
               key={title}
               onClick={handleBurgerClose}
             >
-              <Link href={link}>{t(title.toLowerCase())}</Link>
+              <Link data-testid={`${title}-Test`} href={link}>
+                {t(title.toLowerCase())}
+              </Link>
             </li>
           ))}
           <li className="w-full flex justify-center">

@@ -30,7 +30,11 @@ export const AuthorCard: FC<AuthorCardProps> = ({
   });
   return (
     <article className="p-10 flex flex-col items-center bg-whiteSmoke hover:bg-linen transition-all w-full max-w-xs">
-      <Link href={`${getRoute("author")}${id}`} className="cursor-pointer ">
+      <Link
+        href={`${getRoute("author")}${id}`}
+        className="cursor-pointer"
+        data-testid="authorCardTest"
+      >
         <Image
           className="rounded-full mb-5 max-w-32"
           src={photo}

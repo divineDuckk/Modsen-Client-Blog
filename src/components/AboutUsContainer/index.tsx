@@ -57,6 +57,7 @@ export const AboutUsContainer: FC<AboutUsContainerProps> = async ({
             <Link
               className={twMerge(`font-bold text-blue-700`, sen.className)}
               href={getRoute("aboutUs")}
+              data-testid="aboutUsLink"
             >
               {t("readMore")}
             </Link>

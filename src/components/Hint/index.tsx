@@ -13,7 +13,10 @@ export const Hint: FC<HintProps> = ({ tags, handleClick }) => {
   const t = useTranslations("Tags");
 
   return (
-    <ul className="w-full list-none bg-white z-10 absolute top-full py-3 border border-solid border-gray-400 rounded-md">
+    <ul
+      className="w-full list-none bg-white z-10 absolute top-full py-3 border border-solid border-gray-400 rounded-md"
+      data-testid="hint"
+    >
       {tags.map((tag) => (
         <li
           onClick={handleClick(t(tag))}

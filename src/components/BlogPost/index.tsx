@@ -32,6 +32,7 @@ export const BlogPost: FC<BlogPostProps> = ({
     <Link
       href={`${getRoute("blogPost")}${id}`}
       className="flex flex-col md:flex-row gap-8 items-center hover:bg-linen transition-all cursor-pointer"
+      data-testid="post"
     >
       <div className={imgClass}>
         <Image src={imgUrl} alt="post image" className="h-full object-cover" />
