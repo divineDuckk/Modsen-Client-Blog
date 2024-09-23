@@ -22,9 +22,9 @@ export const CategoryContainer: FC<CategoryContainerProps> = ({
   );
 
   return (
-    <div className="w-full">
+    <div className="w-full mb-8">
       <h2 className={categoryClass}>{title}</h2>
-      <div className="flex justify-between mb-32 md:flex-row flex-col md:items-baseline items-center">
+      <div className="xl:flex xl:justify-between mb-32 md:grid md:grid-cols-2 justify-items-center gap-4 grid grid-cols-1">
         {CATEGORY.map(({ content, icon, title }) => (
           <Category key={title} content={content} icon={icon} title={title} />
         ))}

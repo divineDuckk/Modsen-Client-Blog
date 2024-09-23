@@ -13,7 +13,7 @@ const Map: FC = () => {
       center={CENTER}
       zoom={ZOOM}
       scrollWheelZoom={true}
-      className="w-full h-600"
+      className="w-full h-300 sm:h-600"
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

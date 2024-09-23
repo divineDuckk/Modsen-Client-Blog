@@ -19,16 +19,18 @@ export default async function About() {
 
   return (
     <main className="mt-20 max-w-7xl w-full">
-      <div className="flex justify-center gap-24 items-center translate-y-12">
-        <div className="bg-white p-16">
-          <h2 className="font-medium text-base tracking-widest mb-4 uppercase">
+      <div className="flex justify-center gap-5 lg:gap-24 items-center translate-y-12 flex-col lg:flex-row mb-32 lg:mb-0">
+        <div className="bg-white p-0 lg:p-16">
+          <h2 className="font-medium text-base tracking-widest mb-4 uppercase min-w-80 text-center lg:text-left">
             {t("aboutUsTitle")}
           </h2>
-          <h1 className={`${sen.className} font-bold text-5xl max-w-lg`}>
+          <h1
+            className={`${sen.className} font-bold text-xl sm:text-3xl xl:text-5xl max-w-lg text-center lg:text-left`}
+          >
             {t("aboutUsHeader")}
           </h1>
         </div>
-        <p className="bg-transparent font-normal text-base opacity-65 max-w-md">
+        <p className="bg-transparent font-normal text-base opacity-65 max-w-md text-center lg:text-left">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -37,12 +39,12 @@ export default async function About() {
       </div>
       <div className="flex justify-center relative -z-10">
         <Image src={aboutImage} alt="about us image" />
-        <div className="absolute max-w-4xl w-full bottom-0 left-32">
-          <div className="flex justify-between bg-goldenYellow py-8 px-12 w-full max-w-2xl">
+        <div className="absolute max-w-4xl w-full bottom-0 lg:left-32">
+          <div className="flex justify-between bg-goldenYellow py-8 px-4 sm:px-12 w-full max-w-2xl gap-4">
             {aboutUsInfo.map(({ info, value }) => (
               <div key={info} className="bg-goldenYellow">
                 <h2
-                  className={`${sen.className} font-bold text-6xl text-сharcoalBlue tracking-tight`}
+                  className={`${sen.className} font-bold text-2xl sm:text-4xl lg:text-6xl text-сharcoalBlue tracking-tight`}
                 >
                   {value}
                 </h2>
@@ -52,23 +54,33 @@ export default async function About() {
               </div>
             ))}
           </div>
-          <div className="w-full h-6 flex">
+          <div className="w-3/4 xl:w-full h-6 flex">
             <span className="w-1/3 h-full inline-block bg-purple-700" />
             <span className="w-2/3 h-full bg-goldenYellow inline-block" />
           </div>
         </div>
       </div>
       <AboutUsContainer />
-      <div className="flex relative text-сharcoalBlue justify-between items-center mb-32">
-        <div className="max-w-lg w-full">
-          <h2 className={twMerge(`font-bold text-4xl mb-4`, sen.className)}>
+      <div className="flex flex-col lg:flex-col relative text-сharcoalBlue justify-between items-center mb-32">
+        <div className="max-w-lg w-full mb-5 lg:mb-0">
+          <h2
+            className={twMerge(
+              `font-bold text-4xl mb-4 text-center lg:text-left`,
+              sen.className,
+            )}
+          >
             {t("ourTeam")}
           </h2>
-          <h3 className={twMerge(`font-bold text-2xl mb-4`, sen.className)}>
+          <h3
+            className={twMerge(
+              `font-bold text-2xl mb-4 text-center lg:text-left`,
+              sen.className,
+            )}
+          >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt.
           </h3>
-          <p className="font-normal text-base">
+          <p className="font-normal text-base text-center lg:text-left">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -77,24 +89,34 @@ export default async function About() {
           </p>
         </div>
         <div className="relative">
-          <div className="w-24 h-28 bg-goldenYellow absolute rounded-tl-5xl top-1/4 -left-12" />
+          <div className="w-24 h-28 bg-goldenYellow absolute rounded-tl-5xl top-1/4 -left-12 hidden lg:block" />
           <Image src={hands} alt="hands image" />
         </div>
       </div>
-      <div className="flex relative text-сharcoalBlue gap-16 items-center mb-32">
+      <div className="flex flex-col lg:flex-col relative text-сharcoalBlue gap-16 items-center mb-32">
         <div className="relative">
-          <div className="w-20 h-20 bg-purple-800 absolute rounded-full -bottom-10 left-1/4" />
+          <div className="w-20 h-20 bg-purple-800 absolute rounded-full -bottom-10 left-1/4 hidden lg:block" />
           <Image src={threePersons} alt="hands image" />
         </div>
         <div className="max-w-lg w-full">
-          <h2 className={twMerge(`font-bold text-4xl mb-4`, sen.className)}>
+          <h2
+            className={twMerge(
+              `font-bold text-4xl mb-4 text-center lg:text-left`,
+              sen.className,
+            )}
+          >
             {t("whyStarted")}
           </h2>
-          <h3 className={twMerge(`font-bold text-2xl mb-4`, sen.className)}>
+          <h3
+            className={twMerge(
+              `font-bold text-2xl mb-4 text-center lg:text-left`,
+              sen.className,
+            )}
+          >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt.
           </h3>
-          <p className="font-normal text-base">
+          <p className="font-normal text-base text-center lg:text-left">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut

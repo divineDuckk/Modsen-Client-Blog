@@ -24,13 +24,14 @@ export const BlogPost: FC<BlogPostProps> = ({
     `${atCategoryPage ? "max-w-80 h-80" : "max-w-md h-full max-h-80"}`,
   );
   const contentClass = twMerge(
-    `${atCategoryPage ? "max-w-lg h-80  flex flex-col justify-center" : "max-w-2xl"} h-full`,
+    `${atCategoryPage ? "xl:max-w-lg h-80  flex flex-col justify-center" : "xl:max-w-2xl"}`,
+    `h-full max-w-sm`,
   );
 
   return (
     <Link
       href={`${getRoute("blogPost")}${id}`}
-      className="flex gap-8 items-center hover:bg-linen transition-all cursor-pointer"
+      className="flex flex-col md:flex-row gap-8 items-center hover:bg-linen transition-all cursor-pointer"
     >
       <div className={imgClass}>
         <Image src={imgUrl} alt="post image" className="h-full object-cover" />
@@ -39,8 +40,10 @@ export const BlogPost: FC<BlogPostProps> = ({
         <h3 className="font-semibold text-base text-blue-800 tracking-widest mb-7 uppercase">
           {category}
         </h3>
-        <h2 className={twMerge(`tracking-tight mb-6`, heading2)}>{title}</h2>
-        <p className="font-normal text-base opacity-65">{content}</p>
+        <h2 className={twMerge(`tracking-tight mb-6 w-full`, heading2)}>
+          {title}
+        </h2>
+        <p className="font-normal text-base opacity-65 w-full">{content}</p>
       </div>
     </Link>
   );

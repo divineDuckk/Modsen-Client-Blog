@@ -11,7 +11,7 @@ export default async function Contact() {
   return (
     <main className="w-full flex flex-col items-center">
       <div className="w-full max-w-3xl mt-32">
-        <div className="text-center  mb-16">
+        <div className="text-center mb-16">
           <h3 className="font-black text-base tracking-widest mb-4 uppercase">
             {t("Contact.subtitle")}
           </h3>
@@ -22,7 +22,7 @@ export default async function Contact() {
             ad minim.
           </p>
         </div>
-        <div className="w-full bg-purple-800 flex text-white justify-evenly mb-8">
+        <div className="w-full bg-purple-800 flex text-white justify-evenly mb-8 flex-col items-center sm:items-baseline sm:flex-row">
           <div className="w-full max-w-72 my-12 ">
             <p className="text-sm font-normal opacity-65 w-full border-b border-solid border-gray-300 pb-4 mb-5 tracking-wide">
               {t("WorkingHours.workHours")}

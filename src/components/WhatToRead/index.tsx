@@ -16,8 +16,10 @@ export const WhatToRead: FC<WhatToReadProps> = async ({ posts }) => {
 
   return (
     <div className="pb-16 border-b-2 border-whiteSmoke border-solid mb-32">
-      <h2 className={twMerge(`mb-16`, heading2)}>{t("readNext")}</h2>
-      <div className="flex justify-between">
+      <h2 className={twMerge(`mb-16 text-center lg:text-left`, heading2)}>
+        {t("readNext")}
+      </h2>
+      <div className="flex gap-9 flex-wrap flex-col lg:flex-row items-center lg:items-baseline">
         {posts.map((post) => (
           <PostCard {...post} key={post.id} />
         ))}
