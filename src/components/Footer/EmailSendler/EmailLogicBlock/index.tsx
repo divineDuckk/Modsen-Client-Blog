@@ -59,8 +59,6 @@ export const EmailLogicBlock = () => {
 
     setSending(true);
     setSuccess(false);
-    console.log("message");
-    console.log(getBuildEnvVar("EMAILJS_KEY"));
 
     emailjs
       .send(

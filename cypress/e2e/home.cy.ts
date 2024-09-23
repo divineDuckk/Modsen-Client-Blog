@@ -12,7 +12,7 @@ describe("home page", () => {
   });
   it("should move to blog in header", () => {
     cy.get("[data-testid='Blog-Test']").click();
-    cy.url().should("include", "blog");
+    cy.url().should("include", "blog/");
   });
   it("should move to about us in header", () => {
     cy.get("[data-testid='About us-Test']").click();
@@ -29,17 +29,17 @@ describe("home page", () => {
   });
   it("read more button should redirect to certain blog", () => {
     cy.contains("Read More").click();
-    cy.url().should("include", "blog");
+    cy.url().should("include", "blog/");
   });
   it("view all button should redirect to blog", () => {
     cy.scrollTo("0%", "15%");
     cy.contains("View all").click();
     cy.url().should("include", "blog");
   });
-  it("should redirect to certaion blog, when click in all posts", () => {
+  it("should redirect to certain blog, when click in all posts", () => {
     cy.scrollTo("0%", "15%");
     cy.get("[data-testid='miniPost']").first().click();
-    cy.url().should("include", "blog");
+    cy.url().should("include", "blog/");
   });
   it("should redirect to about us in about us block", () => {
     cy.scrollTo("0%", "30%");
@@ -76,5 +76,30 @@ describe("home page", () => {
     cy.scrollTo("bottom");
     cy.contains("Privacy Policy").click();
     cy.url().should("include", "privacy");
+  });
+  it("should send email", () => {
+    cy.scrollTo("bottom");
+    cy.intercept("POST", "https://api.emailjs.com/api/v1.0/email/send", {
+      statusCode: 200,
+      body: { success: true },
+    }).as("mockSendEmail");
+    cy.get("input").type("email@gmai.com");
+    cy.contains("button", "Subscribe").click();
+    cy.wait("@mockSendEmail").then((interception) => {
+      expect(interception.request.method).to.eq("POST");
+      expect(interception.response?.statusCode).to.eq(200);
+      expect(interception.response?.body).to.have.property("success", true);
+    });
+  });
+  it("should throw error if email is empty", () => {
+    cy.scrollTo("bottom");
+    cy.contains("button", "Subscribe").click();
+    cy.contains("Email is required").should("be.visible");
+  });
+  it("should throw error if email is wrong", () => {
+    cy.scrollTo("bottom");
+    cy.get("input").type("dadawdaw");
+    cy.contains("button", "Subscribe").click();
+    cy.contains("Uncorrect email").should("be.visible");
   });
 });

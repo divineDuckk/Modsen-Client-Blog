@@ -41,7 +41,7 @@
     "next": "Next >"
   },
   "BlogHeader": {
-    "postedOn": "posted on {label}",
+    "postedOn": "posted on {date}",
     "readMore": "Read More >"
   },
   "CategoryHead": {

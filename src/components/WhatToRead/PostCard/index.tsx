@@ -26,7 +26,7 @@ export const PostCard: FC<PostCardProps> = async ({
 
   return (
     <article className="max-w-sm hover:bg-linen transition-all duration-300 flex flex-col">
-      <Link href={`${getRoute("blogPost")}${id}`}>
+      <Link href={`${getRoute("blogPost")}${id}`} data-testid="recommendPost">
         <Image
           src={imgUrl}
           alt={`${name} post`}
