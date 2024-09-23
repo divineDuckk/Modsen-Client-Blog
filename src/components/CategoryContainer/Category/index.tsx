@@ -21,6 +21,7 @@ export const Category: FC<CategoryProps> = async ({ content, icon, title }) => {
     <Link
       href={`${getRoute("category")}${title}`}
       className="p-8 border border-solid border-gray-200 max-w-72 cursor-pointer hover:bg-goldenYellow transition-all"
+      data-testid={`${title}CategoryTest`}
     >
       <div className="w-fit rounded-lg p-3 bg-linen mb-4">
         <Image src={icon} alt="category icon" />

@@ -21,6 +21,7 @@
       "@/*": ["./src/*"]
     }
   },
+  "types": ["jest", "node", "cypress"],
   "include": [
     "next-env.d.ts",
     "**/*.ts",

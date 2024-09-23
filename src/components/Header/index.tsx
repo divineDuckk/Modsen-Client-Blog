@@ -28,7 +28,7 @@ export const Header = () => {
       <header className="w-full max-w-1440 flex justify-between px-9 bg-сharcoalBlue items-center h-20">
         <h2 className="font-bold text-2xl text-white">{t("title")}</h2>
         <ul className="flex gap-6 items-center text-white">
-          <li>
+          <li data-testid="langSwitcher">
             <LanguageSwitcher />
           </li>
           {HEADER_LINKS.map(({ link, title }) => (
@@ -36,7 +36,9 @@ export const Header = () => {
               className="text-base font-normal cursor-pointer hover:text-shadow-white transition-all"
               key={title}
             >
-              <Link href={link}>{t(title.toLowerCase())}</Link>
+              <Link data-testid={`${title}-Test`} href={link}>
+                {t(title.toLowerCase())}
+              </Link>
             </li>
           ))}
           <li>

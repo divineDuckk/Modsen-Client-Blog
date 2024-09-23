@@ -23,7 +23,10 @@ export const MiniPost: FC<MiniPostProps> = async ({
   const { remains, month } = getMonthAndYear(date);
 
   return (
-    <article className="p-8 cursor-pointer hover:bg-сosmicLatte transition-all">
+    <article
+      className="p-8 cursor-pointer hover:bg-сosmicLatte transition-all"
+      data-testid="miniPost"
+    >
       <Link href={`${getRoute("blogPost")}${id}`}>
         <p className="mb-2">
           {t("By")} <span className="text-blue-600">{authorName}</span> |{" "}

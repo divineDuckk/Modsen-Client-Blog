@@ -52,6 +52,8 @@ const buildEnvVars = {
 };
 
 export const getBuildEnvVar = (envName: keyof typeof buildEnvVars): string => {
+  console.log(buildEnvVars);
+  console.log(buildEnvVars[envName]);
   return buildEnvVars[envName] as string;
 };
 

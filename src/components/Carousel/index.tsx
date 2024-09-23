@@ -40,6 +40,7 @@ export const Carousel: FC<CarouselProps> = ({ children }) => {
               `text-2xl bg-white rounded-full w-12 h-12 transition-all`,
               `${!isStartPage ? "hover:scale-125 hover:bg-black hover:text-white " : "opacity-65 cursor-not-allowed"}`,
             )}
+            data-testid="carouselPrev"
           >
             {"<-"}
           </button>
@@ -50,6 +51,7 @@ export const Carousel: FC<CarouselProps> = ({ children }) => {
               `text-2xl bg-white rounded-full w-12 h-12 transition-all`,
               `${!isEndPage ? "hover:scale-125 hover:bg-black hover:text-white " : "opacity-65 cursor-not-allowed"}`,
             )}
+            data-testid="carouselNext"
           >
             {"->"}
           </button>
