@@ -22,12 +22,16 @@ export default async function Blog() {
     <div className="w-full">
       <main className="flex flex-col items-center">
         <div className="bg-magnolia w-full mb-8">
-          <div className="flex w-full mb-20 max-w-1440 mx-auto justify-between px-9 pt-20 items-center">
-            <section className="max-w-xl">
+          <div className="flex flex-col-reverse lg:flex-row w-full mb-20 max-w-1440 mx-auto justify-between px-9 pt-20 items-center">
+            <section className="max-w-xl flex flex-col items-center lg:items-baseline mt-4 lg:mt-0">
               <h3 className="font-medium text-base tracking-widest uppercase mb-5">
                 {t("FeaturedPost.featured")}
               </h3>
-              <h2 className={twMerge(`mb-4`, heading2)}>{title}</h2>
+              <h2
+                className={twMerge(`mb-4 text-center lg:text-left`, heading2)}
+              >
+                {title}
+              </h2>
               <p className="font-medium text-sm mb-4">
                 {t("Date.By")}{" "}
                 <span className="font-medium text-sm text-blue-600">
@@ -35,7 +39,9 @@ export default async function Blog() {
                 </span>{" "}
                 | {t(`Date.${month}`)} {remains}
               </p>
-              <p className="mb-8 font-normal text-base opacity-65">{content}</p>
+              <p className="mb-8 font-normal text-base opacity-65 text-center lg:text-left">
+                {content}
+              </p>
               <ActionLink
                 content={t("FeaturedPost.readMore")}
                 link={`${getRoute("blogPost")}${id}`}

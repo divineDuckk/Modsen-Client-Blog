@@ -25,7 +25,10 @@ export const Review: FC<ReviewProps> = ({
   return (
     <article className="w-full flex-shrink-0">
       <h2
-        className={twMerge(` mb-28 font-bold text-2xl max-w-md`, sen.className)}
+        className={twMerge(
+          `mb-28 font-bold text-2xl w-full xl:max-w-md`,
+          sen.className,
+        )}
       >
         {review}
       </h2>

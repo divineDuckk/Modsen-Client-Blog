@@ -24,11 +24,12 @@ export const Category: FC<CategoryProps> = ({ title, icon }) => {
   const categoryClass = twMerge(
     `flex items-center gap-4 p-6 hover:bg-whiteSmoke transition-all cursor-pointer`,
     `${isActive && "bg-goldenYellow"}`,
+    "max-w-72 w-full",
   );
 
   return (
     <Link className={categoryClass} href={`${getRoute("category")}${title}`}>
-      <div className="p-3 bg-сosmicLatte rounded-md">
+      <div className="p-3 bg-сosmicLatte rounded-md w-12 h-12">
         <Image src={icon} alt="category icon" />
       </div>
       <h3 className={heading3}>{t(title)}</h3>

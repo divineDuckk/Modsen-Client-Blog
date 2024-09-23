@@ -86,7 +86,7 @@ export const PostsContainer: FC<PostsContainerProps> = ({
           {atAuthorPage ? t("AuthorPosts.posts") : t("BlogCards.allPosts")}
         </h1>
       )}
-      <section className="flex flex-col gap-16 mb-16">
+      <section className="flex flex-col gap-16 mb-16 items-center xl:items-baseline">
         {posts.map(({ category, content, id, imgUrl, title }) => (
           <BlogPost
             category={t(`Categories.${category}`)}

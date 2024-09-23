@@ -26,7 +26,9 @@ const Category: FC<CategoryPageProps> = async ({ params }) => {
           <h1 className={twMerge(`mb-4`, display)}>
             {t(`Categories.${title}`)}
           </h1>
-          <p className="text-base font-normal opacity-65 mb-8">{content}</p>
+          <p className="text-base font-normal opacity-65 mb-8 text-center xl:text-left">
+            {content}
+          </p>
           <p className="text-base font-medium tracking-widest uppercase">
             {t("CategoryHead.subtitle", { title: t(`Categories.${title}`) })}
           </p>

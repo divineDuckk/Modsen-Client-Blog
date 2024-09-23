@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import { twMerge } from "tailwind-merge";
 
 import { fetchPosts } from "@/api/fetchPosts";
 import { display, heading1, heading2, heading3 } from "@/app/classes";
@@ -40,8 +41,8 @@ export default async function Home() {
     <div className="w-full">
       <main className="flex flex-col items-center">
         <div className="w-full max-w-1440 mx-auto">
-          <div className="h-90">
-            <section className="text-white ml-20 flex flex-col gap-6 items-start max-w-5xl pt-32">
+          <div className="h-4/5 xl:h-90">
+            <section className="text-white ml-8 lg:ml-20 flex flex-col gap-6 items-start max-w-5xl pt-6 lg:pt-32">
               <h3 className="font-light text-base uppercase tracking-widest">
                 {t("Home.postedOn")}{" "}
                 <span className="font-bold tracking-widest">
@@ -54,27 +55,29 @@ export default async function Home() {
                 <span className="text-goldenYellow">{author.name}</span> |{" "}
                 {t(`Date.${month}`)} {remains}
               </p>
-              <p className="text-base font-normal max-w-xl mb-12">{content}</p>
+              <p className="text-sm sm:text-base font-normal  max-w-xl mb-0 sm:mb-12">
+                {content}
+              </p>
               <ActionLink
                 content={t("Home.readMore")}
                 link={`${getRoute("blogPost")}${id}`}
               />
             </section>
-            <div className="absolute -z-10 left-0 top-0 w-full h-90">
+            <div className="absolute -z-10 left-0 top-0 h-3/4 w-full md:h-4/5">
               <Image
                 src={bgImg}
                 alt="businessman"
                 priority
-                className="object-cover w-full h-full max-h-full filter brightness-50"
+                className="object-cover  w-full h-full max-h-full filter brightness-50"
               />
             </div>
           </div>
         </div>
         <div className="max-w-1440 w-full">
           <Observer>
-            <div className="flex mt-96  justify-center gap-8 mb-32">
+            <div className="flex flex-col mt-60 xl:mt-96 justify-center gap-8 mb-32 sm:flex-row items-center sm:items-baseline">
               <div>
-                <h2 className={`${heading2} mb-8`}>
+                <h2 className={`mb-8 text-center md:text-left ${heading2}`}>
                   {t("FeaturedPost.featured")}
                 </h2>
                 <section className="p-8 border border-solid border-gray-200 max-w-3xl">
@@ -93,8 +96,10 @@ export default async function Home() {
                 </section>
               </div>
               <div className="flex flex-col max-w-lg">
-                <div className="flex justify-between items-center mb-8">
-                  <h2 className={heading2}>{t("AllPosts.allPosts")}</h2>
+                <div className="flex justify-evenly md:justify-between items-center mb-8">
+                  <h2 className={twMerge(heading2, "text-center md:text-left")}>
+                    {t("AllPosts.allPosts")}
+                  </h2>
                   <Link className="text-blue-500" href={getRoute("blog")}>
                     {t("AllPosts.viewAll")}
                   </Link>
@@ -115,17 +120,19 @@ export default async function Home() {
             <AboutUsContainer atHome />
             <CategoryContainer title={t("ChooseCategory.title")} atHome />
             <div className="flex relative mb-32">
-              <div className="object-cover h-full">
+              <div className="object-cover h-full hidden sm:block">
                 <Image src={whyWeStartedBg} alt="friends background" />
               </div>
-              <div className="p-20 absolute right-0 max-w-2xl bg-white bottom-0">
+              <div className="sm:p-20 flex flex-col items-center sm:items-baseline sm:absolute right-0 max-w-2xl bg-white bottom-0">
                 <h3 className="font-semibold uppercase text-base tracking-widest mb-6">
                   {t("WhyWeStarted.subtitle")}
                 </h3>
-                <h2 className={`${heading1} mb-7 tracking-wide`}>
+                <h2
+                  className={`${heading1} mb-7 tracking-wide text-center sm:text-left `}
+                >
                   {t("WhyWeStarted.title")}
                 </h2>
-                <p className="opacity-65 font-normal text-base mb-8">
+                <p className="opacity-65 font-normal text-base mb-8 text-center sm:text-left">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -138,9 +145,14 @@ export default async function Home() {
               </div>
             </div>
             <AuthorsContainer atHome />
-            <div className="flex justify-between mb-24 items-center px-6">
+            <div className="grid grid-cols-3 gap-5 justify-between mb-24 items-center px-6 lg:flex">
               {LINKS_LIST.map((url, index) => (
-                <Image key={index} src={url} alt="ad link" />
+                <Image
+                  key={index}
+                  src={url}
+                  alt="ad link"
+                  className="text-center w-full"
+                />
               ))}
             </div>
             <Testimonials />

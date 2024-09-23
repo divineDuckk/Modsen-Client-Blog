@@ -29,7 +29,7 @@ export const AuthorCard: FC<AuthorCardProps> = ({
     linkedIn: linkedInLink,
   });
   return (
-    <article className="p-10 flex flex-col items-center bg-whiteSmoke hover:bg-linen transition-all max-w-xs">
+    <article className="p-10 flex flex-col items-center bg-whiteSmoke hover:bg-linen transition-all w-full max-w-xs">
       <Link
         href={`${getRoute("author")}${id}`}
         className="cursor-pointer"
@@ -41,7 +41,7 @@ export const AuthorCard: FC<AuthorCardProps> = ({
           alt={`${name} photo`}
         />
       </Link>
-      <h2 className={twMerge(`mb-2`, heading3)}>{name}</h2>
+      <h2 className={twMerge(`mb-2 text-center`, heading3)}>{name}</h2>
       <p className="mb-5 opacity-65">{about}</p>
       <LinksContainer links={links} />
     </article>

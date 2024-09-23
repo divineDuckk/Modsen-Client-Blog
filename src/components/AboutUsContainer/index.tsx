@@ -15,9 +15,9 @@ export const AboutUsContainer: FC<AboutUsContainerProps> = async ({
   atHome = false,
 }) => {
   const aboutClassName = twMerge(
-    `py-24 flex`,
-    atHome ? "flex-row" : "flex-row-reverse items-start",
-    `gap-14 justify-center bg-magnolia`,
+    `py-24 flex flex-col md:flex-row`,
+    atHome ? "md:flex-row" : "md:flex-row-reverse items-start",
+    `gap-14 justify-center bg-magnolia px-4`,
   );
 
   const t = await getTranslations("AboutUs");
@@ -32,19 +32,19 @@ export const AboutUsContainer: FC<AboutUsContainerProps> = async ({
         </div>
       )}
       <div className={aboutClassName}>
-        <div className="max-w-lg">
+        <div className="md:max-w-lg flex md:items-start items-center flex-col">
           <p className="font-semibold text-base text-сharlestonGreen uppercase mb-6 tracking-widest">
             {atHome ? t("aboutUsTitle") : t("ourVision")}
           </p>
           <h2
             className={twMerge(
-              `text-сharlestonGreen mb-4 leading-normal`,
+              `text-сharlestonGreen mb-4 leading-normal md:min-w-96 text-center sm:text-left`,
               heading2,
             )}
           >
             {atHome ? t("aboutUsHeader") : t("ourVisionText")}
           </h2>
-          <p className="text-base font-normal opacity-60 mb-4">
+          <p className="text-base font-normal opacity-60 mb-4 text-center sm:text-left">
             {atHome
               ? `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.`
@@ -63,19 +63,19 @@ export const AboutUsContainer: FC<AboutUsContainerProps> = async ({
             </Link>
           )}
         </div>
-        <div className="max-w-lg">
-          <p className="font-semibold text-base text-сharlestonGreen mb-6 tracking-widest">
+        <div className="md:max-w-lg flex md:items-start items-center flex-col">
+          <p className="font-semibold text-base text-сharlestonGreen mb-6 tracking-widest uppercase ">
             {t("aboutUsTitle")}
           </p>
           <h2
             className={twMerge(
-              `text-сharlestonGreen mb-4 leading-normal`,
+              `text-сharlestonGreen mb-4 leading-normal text-center sm:text-left`,
               heading3,
             )}
           >
             {t("missionText")}
           </h2>
-          <p className="text-base font-normal opacity-60">
+          <p className="text-base font-normal opacity-60 text-center sm:text-left">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut

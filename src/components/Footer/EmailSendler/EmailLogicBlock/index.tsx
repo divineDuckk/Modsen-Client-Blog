@@ -87,7 +87,7 @@ export const EmailLogicBlock = () => {
   );
 
   return (
-    <div className="flex gap-6 max-w-xl w-full items-start">
+    <div className="flex gap-6 max-w-xl w-full items-start flex-col sm:flex-row">
       <div className="w-full max-w-80">
         <input
           className="min-w-44 py-4 bg-transparent border box-border text-lg border-gray-600 w-full pl-6 text-white pr-6"
@@ -98,7 +98,6 @@ export const EmailLogicBlock = () => {
         />
         {errors.email && <p className="text-red-500">{errors.email}</p>}
       </div>
-
       <button
         className={buttonClass}
         onClick={handleSendEmail}

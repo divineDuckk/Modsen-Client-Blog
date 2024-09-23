@@ -49,7 +49,7 @@ export const Categories: FC<CategoriesProps> = ({ serverPosts }) => {
 
   return (
     <div className="w-full flex justify-center">
-      <div className="w-full max-w-7xl flex justify-between gap-11">
+      <div className="w-full max-w-7xl flex justify-between flex-col-reverse xl:flex-row gap-11">
         {posts.length ? (
           <PostsContainer
             serverPosts={posts}
@@ -61,7 +61,7 @@ export const Categories: FC<CategoriesProps> = ({ serverPosts }) => {
             <h2 className={heading2}>{t("CategorySection.noPosts")}</h2>
           </div>
         )}
-        <aside className="max-w-xs">
+        <aside className="max-w-full xl:max-w-xs flex flex-col items-center xl:items-baseline">
           <SearchInput
             value={tag}
             setValue={setTag}
@@ -70,10 +70,10 @@ export const Categories: FC<CategoriesProps> = ({ serverPosts }) => {
           />
           <MiniCategoriesContainer />
           <div>
-            <h2 className={twMerge(`mb-6`, heading2)}>
+            <h2 className={twMerge(`mb-6 text-center xl:text-left`, heading2)}>
               {t("CategorySection.tags")}
             </h2>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 justify-center xl:justify-normal">
               {tagsWithOutEmptyString.map((tagName) => {
                 return (
                   <Tag
