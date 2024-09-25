@@ -2,17 +2,14 @@ import L, { LatLngExpression } from "leaflet";
 
 import { Marker } from "@/interfaces/marker";
 
-const iconUrl = "/marker-icon.png";
-const iconShadowUrl = "/marker-shadow.png";
-
-export const customIcon = new L.Icon({
-  iconUrl: iconUrl,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowUrl: iconShadowUrl,
-  shadowSize: [41, 41],
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl:
+    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
+export const defaultIcon = new L.Icon.Default();
+
 export const CENTER: LatLngExpression = [52.16641323, 21.21769407];
 
 export const MARKERS: Marker[] = [

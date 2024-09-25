@@ -12,6 +12,7 @@ import { localeType } from "@/types";
 import { returnEmailStatusMsg } from "@/utils/functions/returnEmailStatusMsg";
 
 import { EN_QUERY_RALATED, getSchema, RU_QUERY_RALATED } from "./constants";
+import { FormInput } from "./FormInput";
 
 export const ContactForm = () => {
   const [name, setName] = useState("");
@@ -30,14 +31,6 @@ export const ContactForm = () => {
 
   const handleSelect = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedValue(event.target.value);
-  };
-
-  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-
-  const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
   };
 
   const handleMessageChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -100,48 +93,34 @@ export const ContactForm = () => {
       );
   };
 
+  const formInputArray = [
+    {
+      id: 1,
+      value: name,
+      setValue: setName,
+      errorMsg: errors.name,
+      success,
+    },
+    {
+      id: 2,
+      value: email,
+      setValue: setEmail,
+      errorMsg: errors.email,
+      success,
+    },
+  ];
+
   return (
     <form onSubmit={handleSubmit} className="flex flex-col mb-16">
-      <input
-        type="text"
-        value={name}
-        onChange={handleNameChange}
-        className={twMerge(
-          `p-6 text-charcoalBlue border border-solid border-gray-300`,
-          errors.name && "border-red-500",
-        )}
-        placeholder={t("fullName")}
-        disabled={success}
-      />
-      <p
-        className={twMerge(
-          "text-red-500 text-sm min-h-5",
-          errors.name ? "visible" : "hidden-visibility",
-        )}
-      >
-        {errors.name}
-      </p>
-
-      <input
-        type="text"
-        value={email}
-        onChange={handleEmailChange}
-        className={twMerge(
-          `p-6 text-charcoalBlue border border-solid border-gray-300 mt-4`,
-          errors.name && "border-red-500",
-        )}
-        placeholder={t("email")}
-        disabled={success}
-      />
-      <p
-        className={twMerge(
-          "text-red-500 text-sm min-h-5",
-          errors.email ? "visible" : "hidden-visibility",
-        )}
-      >
-        {errors.email}
-      </p>
-
+      {formInputArray.map(({ errorMsg, setValue, success, value, id }) => (
+        <FormInput
+          errorMsg={errorMsg}
+          setValue={setValue}
+          success={success}
+          value={value}
+          key={id}
+        />
+      ))}
       <select
         value={selectedValue}
         onChange={handleSelect}

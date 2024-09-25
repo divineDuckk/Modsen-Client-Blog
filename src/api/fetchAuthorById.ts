@@ -7,7 +7,6 @@ export const fetchAuthorById = async (slug: string) => {
   const baseUrl = getAbsoluteUrl();
   const locale = await getLocale();
   const params = new URLSearchParams({ slug }).toString();
-  console.log(baseUrl);
   const response = await fetch(`${baseUrl}/${locale}/authors/api?${params}`);
   const author: Author = await response.json();
   return author;
