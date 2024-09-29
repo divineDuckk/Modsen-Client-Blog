@@ -4,5 +4,13 @@
   "useTabs": false,
   "semi": true,
   "trailingComma": "all",
-  "bracketSpacing": true
+  "bracketSpacing": true,
+  "endOfLine": "auto",
+  "importOrder": [
+    "^react",
+    "^@storybook",
+    "^[./]",
+    "^[./].*",
+    "^[./].*\\.(css|scss|sass|less)$"
+  ]
 }
